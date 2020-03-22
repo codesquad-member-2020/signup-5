@@ -25,6 +25,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passwordTextField.delegate = self
         passwordConfirmTF.delegate = self
+        
+        let text = "fffffffff"
+        let result = text.contains { (cha) -> Bool in
+            cha.isNumber
+            
+        }
+        
     }
     
     
@@ -39,11 +46,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         if textField == passwordTextField {
-            if isValidPassword(password: textField.text!) {
-                textField.layer.borderColor = UIColor.green.cgColor
-            }else {
-                textField.layer.borderColor = UIColor.red.cgColor
-            }
+            judgeValidPassword(textField)
+            let newLength = textField.text!.count + string.count - range.length
+            return !(newLength > 16)
         }
         
         if textField == passwordConfirmTF {
@@ -68,8 +73,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textField.layer.borderColor = UIColor.black.cgColor
             idAssistLabel.text = "사용 가능한 아이디입니다."
             idAssistLabel.textColor = UIColor.green
-            
         }
+    }
+    
+    func judgeValidPassword(_ textField: UITextField) {
+        let text = textField.text!
+        passwordAssistLabel.textColor = .red
+        textField.layer.borderColor = UIColor.red.cgColor
+        let specialCharacters = ["!","@","#","$","%"]
+        
+        let isContainUpperCase = text.contains(where: { $0.isUppercase})
+        let isContainNumeric = text.contains(where: { $0.isNumber })
+        let isContainSpecialCharacter = text.contains(where: { specialCharacters.contains(String($0)) })
+        
+        if text.count > 16 || text.count < 8 {
+            passwordAssistLabel.text = "8자 이상 16자 이하로 입력해주세요."
+        }else if !isContainUpperCase {
+            passwordAssistLabel.text = "영문 대문자를 최소 1자 이상 포함해주세요."
+        }else if !isContainNumeric {
+            passwordAssistLabel.text = "숫자를 최소 1자 이상 포함해주세요."
+        }else if !isContainSpecialCharacter {
+            passwordAssistLabel.text = "특수문자를 최소 1자 이상 포함해주세요."
+        }else {
+            passwordAssistLabel.text = "안전한 비밀번호입니다."
+            passwordAssistLabel.textColor = .green
+            textField.layer.borderColor = UIColor.black.cgColor
+        }
+        
+        
     }
     
     @IBAction func pressNextBtn(_ sender: Any) {
