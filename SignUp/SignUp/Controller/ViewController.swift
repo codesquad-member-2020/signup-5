@@ -15,6 +15,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordConfirmTF: UITextField!
     @IBOutlet var nameTF: UITextField!
     
+    @IBOutlet var idAssistLabel: UILabel!
+    @IBOutlet var passwordAssistLabel: UILabel!
+    @IBOutlet var passwordConfirmAssistLabel: UILabel!
+    @IBOutlet var nameAssistLabel: UILabel!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         idTextField.delegate = self
