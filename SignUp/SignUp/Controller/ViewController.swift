@@ -25,27 +25,35 @@ class ViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passwordTextField.delegate = self
         passwordConfirmTF.delegate = self
+        nameTF.delegate = self
+        
+        setUpUI()
     }
     
-    
+    func setUpUI() {
+        idTextField.layer.borderWidth = 1.0
+        passwordTextField.layer.borderWidth = 1.0
+        passwordConfirmTF.layer.borderWidth = 1.0
+        nameTF.layer.borderWidth = 1.0
+    }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.layer.borderWidth = 1.0
         
-        if textField == idTextField {
+        switch textField {
+        case idTextField:
             judgeValidID(textField)
             let newLength = textField.text!.count + string.count - range.length
             return !(newLength > 20)
-        }
-        
-        if textField == passwordTextField {
+        case passwordTextField:
             judgeValidPassword(textField)
             let newLength = textField.text!.count + string.count - range.length
             return !(newLength > 16)
-        }
-        
-        if textField == passwordConfirmTF {
-           judgeCorrespondPassword(textField)
+        case passwordConfirmTF:
+            judgeCorrespondPassword(textField)
+        case nameTF:
+            judgeValidName(textField)
+        default: break
+            
         }
         
         return true
@@ -102,6 +110,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textField.layer.borderColor = UIColor.black.cgColor
             passwordConfirmAssistLabel.text = "비밀번호가 일치합니다."
             passwordConfirmAssistLabel.textColor = .green
+        }
+    }
+    
+    func judgeValidName(_ textField: UITextField) {
+        let text = textField.text!
+        if text.isEmpty {
+            textField.layer.borderColor = UIColor.red.cgColor
+            nameAssistLabel.text = "이름은 필수입력항목입니다."
+            nameAssistLabel.textColor = .red
+        }else {
+            textField.layer.borderColor = UIColor.black.cgColor
+             nameAssistLabel.text = ""
         }
     }
     
