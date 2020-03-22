@@ -25,13 +25,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passwordTextField.delegate = self
         passwordConfirmTF.delegate = self
-        
-        let text = "fffffffff"
-        let result = text.contains { (cha) -> Bool in
-            cha.isNumber
-            
-        }
-        
     }
     
     
