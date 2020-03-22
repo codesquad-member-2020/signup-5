@@ -13,6 +13,10 @@
 		30769F0A242664D100D03360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30769F08242664D100D03360 /* Main.storyboard */; };
 		30769F0C242664D600D03360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30769F0B242664D600D03360 /* Assets.xcassets */; };
 		30769F0F242664D600D03360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30769F0D242664D600D03360 /* LaunchScreen.storyboard */; };
+		30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD3312427279D00FE4D44 /* PersonalInfoViewController.swift */; };
+		30FCD334242727C900FE4D44 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD333242727C900FE4D44 /* TermsViewController.swift */; };
+		30FCD336242727E600FE4D44 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD335242727E600FE4D44 /* InterestViewController.swift */; };
+		30FCD338242727F700FE4D44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD337242727F700FE4D44 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		30769F0B242664D600D03360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30769F0E242664D600D03360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30769F10242664D600D03360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30FCD3312427279D00FE4D44 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
+		30FCD333242727C900FE4D44 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
+		30FCD335242727E600FE4D44 /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
+		30FCD337242727F700FE4D44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		30769F01242664D100D03360 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				30FCD3302427278000FE4D44 /* Controller */,
 				30769F02242664D100D03360 /* AppDelegate.swift */,
 				30769F04242664D100D03360 /* SceneDelegate.swift */,
-				30769F06242664D100D03360 /* ViewController.swift */,
 				30769F08242664D100D03360 /* Main.storyboard */,
 				30769F0B242664D600D03360 /* Assets.xcassets */,
 				30769F0D242664D600D03360 /* LaunchScreen.storyboard */,
 				30769F10242664D600D03360 /* Info.plist */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		30FCD3302427278000FE4D44 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				30769F06242664D100D03360 /* ViewController.swift */,
+				30FCD3312427279D00FE4D44 /* PersonalInfoViewController.swift */,
+				30FCD333242727C900FE4D44 /* TermsViewController.swift */,
+				30FCD335242727E600FE4D44 /* InterestViewController.swift */,
+				30FCD337242727F700FE4D44 /* LoginViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +158,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30FCD338242727F700FE4D44 /* LoginViewController.swift in Sources */,
+				30FCD336242727E600FE4D44 /* InterestViewController.swift in Sources */,
+				30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */,
 				30769F07242664D100D03360 /* ViewController.swift in Sources */,
 				30769F03242664D100D03360 /* AppDelegate.swift in Sources */,
 				30769F05242664D100D03360 /* SceneDelegate.swift in Sources */,
+				30FCD334242727C900FE4D44 /* TermsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
