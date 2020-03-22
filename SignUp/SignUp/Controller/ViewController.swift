@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         idTextField.delegate = self
         passwordTextField.delegate = self
+        passwordConfirmTF.delegate = self
     }
     
     
@@ -39,6 +40,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if textField == passwordTextField {
             if isValidPassword(password: textField.text!) {
+                textField.layer.borderColor = UIColor.green.cgColor
+            }else {
+                textField.layer.borderColor = UIColor.red.cgColor
+            }
+        }
+        
+        if textField == passwordConfirmTF {
+            if textField.text! == passwordTextField.text! {
                 textField.layer.borderColor = UIColor.green.cgColor
             }else {
                 textField.layer.borderColor = UIColor.red.cgColor
