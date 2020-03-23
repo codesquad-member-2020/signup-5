@@ -11,9 +11,12 @@ import UIKit
 class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var birthDateTextField: UITextField!
-    let datePicker: UIDatePicker = UIDatePicker()
+    @IBOutlet var phoneNumberTextField: UITextField!
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var emailAssistLabel: UILabel!
+    @IBOutlet var phoneNumberAssistLabel: UILabel!
+    
+    let datePicker: UIDatePicker = UIDatePicker()
     
     var selectedGender: String = ""
     
@@ -21,6 +24,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         birthDateTextField.delegate = self
         emailTextField.delegate = self
+        phoneNumberTextField.delegate = self
         
         datePicker.addTarget(self, action: #selector(selectDate(_:)), for: .valueChanged)
     }
@@ -71,6 +75,17 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
                 textField.layer.borderColor = UIColor.black.cgColor
             }
         }
+        
+        if textField == phoneNumberTextField {
+            if !judgeValidPhoneNumber(textField.text!) {
+                phoneNumberAssistLabel.text = "형식에 맞지 않는 번호입니다"
+                phoneNumberAssistLabel.textColor = .red
+                textField.layer.borderColor = UIColor.red.cgColor
+            }else {
+                phoneNumberAssistLabel.text = ""
+                textField.layer.borderColor = UIColor.black.cgColor
+            }
+        }
         return true
     }
     
@@ -78,6 +93,12 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
         let emailRegEx = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$"
         let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
+    }
+    
+    func judgeValidPhoneNumber(_ number: String) -> Bool {
+        let numberRegEx = "^010[0-9]{3,4}[0-9]{4}$"
+        let numberTest = NSPredicate(format: "SELF MATCHES %@", numberRegEx)
+        return numberTest.evaluate(with: number)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

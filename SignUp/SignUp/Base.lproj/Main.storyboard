@@ -203,7 +203,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="영문 소문자, 숫자, 특수기호(_,-), 5~20자" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-lI-iqp">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-lI-iqp">
                                 <rect key="frame" x="60" y="197" width="255" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -231,7 +231,7 @@
                                     <constraint firstAttribute="height" constant="34" id="g0T-jB-eGg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대전화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5R-H4-6dV">
                                 <rect key="frame" x="60" y="461" width="62.666666666666657" height="22"/>
@@ -246,7 +246,7 @@
                                     <constraint firstAttribute="height" constant="34" id="NtA-tk-weT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
                             </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Mla-cr-BHa">
                                 <rect key="frame" x="60" y="296" width="255" height="32"/>
@@ -297,17 +297,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iTh-uo-Z2j">
+                                <rect key="frame" x="60" y="526" width="255" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="fxV-yN-s2g"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95866558840000005" green="0.95615552989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KDL-lI-iqp" firstAttribute="top" secondItem="UAM-1L-khY" secondAttribute="bottom" constant="8" id="19D-a0-GM0"/>
                             <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="Mla-cr-BHa" secondAttribute="trailing" constant="60" id="29n-7b-4wj"/>
+                            <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="iTh-uo-Z2j" secondAttribute="trailing" constant="60" id="3d4-p8-eta"/>
                             <constraint firstItem="T24-TD-gcB" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="3sv-5z-lkw"/>
                             <constraint firstItem="zcW-gC-9FS" firstAttribute="trailing" secondItem="OHQ-Uu-pyO" secondAttribute="trailing" id="6rY-Fu-Ana"/>
                             <constraint firstItem="OHQ-Uu-pyO" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="7zq-e5-XzJ"/>
                             <constraint firstItem="k5R-H4-6dV" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="8DM-aP-mvJ"/>
                             <constraint firstItem="sSP-fK-uwA" firstAttribute="top" secondItem="W0f-He-Ugl" secondAttribute="bottom" constant="8" id="9H6-4c-KfR"/>
                             <constraint firstItem="T24-TD-gcB" firstAttribute="top" secondItem="KDL-lI-iqp" secondAttribute="bottom" constant="35" id="C2d-gI-8J5"/>
+                            <constraint firstItem="iTh-uo-Z2j" firstAttribute="top" secondItem="OHQ-Uu-pyO" secondAttribute="bottom" constant="1" id="CLF-fZ-5La"/>
                             <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="LUP-zh-9Bw" secondAttribute="trailing" constant="60" id="DEq-9r-SCl"/>
                             <constraint firstItem="OHQ-Uu-pyO" firstAttribute="top" secondItem="k5R-H4-6dV" secondAttribute="bottom" constant="8" id="Fad-J1-UNt"/>
                             <constraint firstItem="yrS-yp-piS" firstAttribute="top" secondItem="qgl-Ph-nFO" secondAttribute="top" constant="39" id="K8l-tu-XMd"/>
@@ -319,6 +330,7 @@
                             <constraint firstItem="k5R-H4-6dV" firstAttribute="top" secondItem="sSP-fK-uwA" secondAttribute="bottom" constant="35" id="VNj-Ry-qmX"/>
                             <constraint firstItem="sSP-fK-uwA" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="XRb-Yl-Tn8"/>
                             <constraint firstItem="W0f-He-Ugl" firstAttribute="top" secondItem="Mla-cr-BHa" secondAttribute="bottom" constant="35" id="YMp-t8-HFi"/>
+                            <constraint firstItem="iTh-uo-Z2j" firstAttribute="leading" secondItem="OHQ-Uu-pyO" secondAttribute="leading" id="ZaD-kk-PpI"/>
                             <constraint firstItem="zcW-gC-9FS" firstAttribute="top" secondItem="OHQ-Uu-pyO" secondAttribute="bottom" constant="50" id="dDi-NC-Big"/>
                             <constraint firstItem="LUP-zh-9Bw" firstAttribute="leading" secondItem="sSP-fK-uwA" secondAttribute="leading" id="dT0-xK-aVN"/>
                             <constraint firstItem="X5C-6h-UwQ" firstAttribute="top" secondItem="OHQ-Uu-pyO" secondAttribute="bottom" constant="50" id="g2q-na-BCe"/>
@@ -336,6 +348,8 @@
                         <outlet property="birthDateTextField" destination="KDL-lI-iqp" id="GtY-kb-aeh"/>
                         <outlet property="emailAssistLabel" destination="LUP-zh-9Bw" id="dUu-d5-vRY"/>
                         <outlet property="emailTextField" destination="sSP-fK-uwA" id="5h1-5q-F2h"/>
+                        <outlet property="phoneNumberAssistLabel" destination="iTh-uo-Z2j" id="OGF-t2-Syt"/>
+                        <outlet property="phoneNumberTextField" destination="OHQ-Uu-pyO" id="fay-Q4-EAs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ma-pd-Vyr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
