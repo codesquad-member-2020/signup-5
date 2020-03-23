@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup - </title>
+    <link rel="stylesheet" href="../src/css/reset.css">
+    <link rel="stylesheet" href="../src/css/signupStyle.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <form action="#" method="GET" class="signup-form-wrap">
+            <fieldset>
+                <h1 class="signup-title">회원가입</h1>
+                <div class="signup-content">
+                    <label for="signup-id">아이디</label>
+                    <input id="signup-id" type="text">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-password">비밀번호</label>
+                    <input id="signup-password" type="password">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-password-recheck">비밀번호 재확인</label>
+                    <input id="signup-password-recheck" type="password">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-name">이름</label>
+                    <input id="signup-name" type="text">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="birth-date-year">생년월일</label>
+                    <div class="birth-date-input-wrap">
+                        <input id="birth-date-year" type="number" placeholder="년(4자)">
+                        <select id="birth-date-month">
+                            <option selected disabled hidden value="">월</option>
+                            <option value="01">1월</option>
+                            <option value="02">2월</option>
+                            <option value="03">3월</option>
+                            <option value="04">4월</option>
+                            <option value="05">5월</option>
+                            <option value="06">6월</option>
+                            <option value="07">7월</option>
+                            <option value="08">8월</option>
+                            <option value="09">9월</option>
+                            <option value="10">10월</option>
+                            <option value="11">11월</option>
+                            <option value="12">12월</option>
+                        </select>
+                        <input id="birth-date-day" type="number" placeholder="일">
+                    </div>
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-gender">성별</label>
+                    <select id="signup-gender">
+                        <option selected disabled hidden value="">성별</option>
+                        <option value="male">남자</option>
+                        <option value="female">여자</option>
+                    </select>
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-email">이메일</label>
+                    <input id="signup-email" type="text">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-phone-number">휴대전화</label>
+                    <input id="signup-phone-number" type="number" placeholder="- 없이 입력해주세요.">
+                    <div class="state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <label for="signup-interests">관심사</label>
+                    <div class="tags-input-wrap">
+                        <div class="tag-ui-wrap">
+                            <input id="signup-interests" type="text">
+                        </div>
+                    </div>
+                    <div class="interests state-text"></div>
+                </div>
+
+                <div class="signup-content">
+                    <span class="clauses-agree-text">약관에 동의합니다.</span>
+                    <input class="clauses-agree-checkbox" type="checkbox" disabled="true">
+                </div>
+
+                <div class="signup-content">
+                    <div class="signup-btns-wrap">
+                        <button class="signup-reset-btn" type="button">초기화</button>
+                        <button class="signup-submit-btn" type="button">가입하기</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="clauses-wrap-blind"></div>
+        <div class="clauses-wrap">
+            <div class="clauses-content">
+                <h2 class="clauses-title">개인정보 수집 및 이용에 대한 안내</h2>
+                <p class="clauses-text-box">
+                    <b>1. 개인정보처리방침의 의의</b><br>
+                    네이버는 본 개인정보처리방침을 정보통신망법을 기준으로 작성하되, 네이버 내에서의 이용자 개인정보 처리 현황을 최대한 알기 쉽고 상세하게 설명하기 위해 노력하였습니다.
+                    이는 쉬운 용어를 사용한 개인정보처리방침 작성 원칙인 ‘Plain Language Privacy Policy(쉬운 용어를 사용한 개인정보처리방침)’를 도입한 것입니다.
+                    <br><br><br>
+                    <b>2. 수집하는 개인정보</b><br>
+                    이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다.
+                    이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를
+                    수집합니다.
+                    <br><br><br>
+                    <b>1. 개인정보처리방침의 의의</b><br>
+                    네이버는 본 개인정보처리방침을 정보통신망법을 기준으로 작성하되, 네이버 내에서의 이용자 개인정보 처리 현황을 최대한 알기 쉽고 상세하게 설명하기 위해 노력하였습니다.
+                    이는 쉬운 용어를 사용한 개인정보처리방침 작성 원칙인 ‘Plain Language Privacy Policy(쉬운 용어를 사용한 개인정보처리방침)’를 도입한 것입니다.
+                    <br><br><br>
+                    <b>2. 수집하는 개인정보</b><br>
+                    이용자는 회원가입을 하지 않아도 정보 검색, 뉴스 보기 등 대부분의 네이버 서비스를 회원과 동일하게 이용할 수 있습니다.
+                    이용자가 메일, 캘린더, 카페, 블로그 등과 같이 개인화 혹은 회원제 서비스를 이용하기 위해 회원가입을 할 경우, 네이버는 서비스 이용을 위해 필요한 최소한의 개인정보를
+                    수집합니다.
+                </p>
+                <button class="clauses-agree-btn" disabled="true">동의</button>
+                <button class="clauses-close-btn">✖</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/js/signup.js"></script>
+    <script src="../src/js/signupInterests.js"></script>
+</body>
+
+</html>
