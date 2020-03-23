@@ -18,7 +18,11 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     let datePicker: UIDatePicker = UIDatePicker()
     
-    var selectedGender: String = ""
+    var selectedGender: String = "female"
+    
+    private var isBirthDateInput = false
+    private var isValidEmail = false
+    private var isValidPhoneNumber = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +60,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 MM월 dd일"
         birthDateTextField.text = formatter.string(from: sender.date)
+        isBirthDateInput = true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -73,6 +78,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
             }else {
                 emailAssistLabel.text = ""
                 textField.layer.borderColor = UIColor.black.cgColor
+                isValidEmail = true
             }
         }
         
@@ -84,6 +90,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
             }else {
                 phoneNumberAssistLabel.text = ""
                 textField.layer.borderColor = UIColor.black.cgColor
+                isValidPhoneNumber = true
             }
         }
         return true
@@ -105,4 +112,15 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
         datePicker.isHidden = true
         self.view.endEditing(true)
     }
+    
+    @IBAction func moveNextScene(_ sender: UIButton) {
+        if isValidEmail, isBirthDateInput, isValidPhoneNumber {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as? TermsViewController{
+                
+                vc.modalPresentationStyle = .automatic
+                self.present(vc, animated: true)
+            }
+        }
+    }
+    
 }
