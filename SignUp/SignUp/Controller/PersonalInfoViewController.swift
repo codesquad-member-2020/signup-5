@@ -13,12 +13,26 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var birthDateTextField: UITextField!
     let datePicker: UIDatePicker = UIDatePicker()
     
+    var selectedGender: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         birthDateTextField.delegate = self
         
         datePicker.addTarget(self, action: #selector(selectDate(_:)), for: .valueChanged)
         
+    }
+    
+   
+    @IBAction func selectGender(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            selectedGender = "female"
+        case 1:
+            selectedGender = "male"
+        default:
+            break
+        }
     }
     
     func setUpDatePicker() {

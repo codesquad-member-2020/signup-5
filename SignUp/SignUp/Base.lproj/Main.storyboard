@@ -254,6 +254,9 @@
                                     <segment title="여자"/>
                                     <segment title="남자"/>
                                 </segments>
+                                <connections>
+                                    <action selector="selectGender:" destination="ivd-b0-KdX" eventType="valueChanged" id="ixh-hv-CEN"/>
+                                </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5C-6h-UwQ">
                                 <rect key="frame" x="60" y="575" width="95" height="40"/>
