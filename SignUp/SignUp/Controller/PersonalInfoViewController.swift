@@ -8,25 +8,27 @@
 
 import UIKit
 
-class PersonalInfoViewController: UIViewController {
+class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet var birthDateTextField: UITextField!
+    let datePicker: UIDatePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        birthDateTextField.delegate = self
+        
     }
     
-
-    @IBAction func inputBirthDate(_ sender: Any) {
+    func setUpDatePicker() {
+        datePicker.frame = CGRect(x: 0, y: self.view.frame.height * (3/4), width: self.view.frame.width, height: self.view.frame.height * (1/4))
+        datePicker.locale = NSLocale.init(localeIdentifier: "ko_KO") as Locale
+        datePicker.datePickerMode = .date
+        self.view.addSubview(datePicker)
     }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        setUpDatePicker()
     }
-    */
 
 }
