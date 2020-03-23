@@ -20,6 +20,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordConfirmAssistLabel: UILabel!
     @IBOutlet var nameAssistLabel: UILabel!
     
+    var isValidId = false
+    var isValidPassword = false
+    var isValidPasswordConfirm = false
+    var isValidName = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         idTextField.delegate = self
@@ -59,6 +64,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func judgeValidID(_ textField: UITextField) {
         //서버에서 아이디 가져와 중복되는지 확인해야 함
         let text = textField.text!
@@ -71,6 +80,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textField.layer.borderColor = UIColor.black.cgColor
             idAssistLabel.text = "사용 가능한 아이디입니다."
             idAssistLabel.textColor = UIColor.green
+            isValidId = true
         }
     }
     
@@ -96,6 +106,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             passwordAssistLabel.text = "안전한 비밀번호입니다."
             passwordAssistLabel.textColor = .green
             textField.layer.borderColor = UIColor.black.cgColor
+            isValidPassword = true
         }
         
     }
@@ -110,6 +121,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             textField.layer.borderColor = UIColor.black.cgColor
             passwordConfirmAssistLabel.text = "비밀번호가 일치합니다."
             passwordConfirmAssistLabel.textColor = .green
+            isValidPasswordConfirm = true
         }
     }
     
@@ -122,17 +134,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }else {
             textField.layer.borderColor = UIColor.black.cgColor
              nameAssistLabel.text = ""
+            isValidName = true
         }
-    }
-    
-    @IBAction func pressNextBtn(_ sender: Any) {
-        print(idTextField.text!)
     }
     
     func judgeCorrespondIdRegEx(id: String) -> Bool {
         let idRegEx = "^(?=.*[a-z])(?=.*[0-9])[a-z0-9-_]{5,20}"
         let idTest = NSPredicate(format: "SELF MATCHES %@", idRegEx)
         return idTest.evaluate(with: id)
+    }
+    
+    @IBAction func pressNextBtn(_ sender: Any) {
+        if isValidId, isValidPassword, isValidPasswordConfirm, isValidName {
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView") as? PersonalInfoViewController{
+                
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+            }
+        }
     }
     
 }
