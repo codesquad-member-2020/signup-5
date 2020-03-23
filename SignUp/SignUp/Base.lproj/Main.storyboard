@@ -231,7 +231,7 @@
                                     <constraint firstAttribute="height" constant="34" id="g0T-jB-eGg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="휴대전화" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k5R-H4-6dV">
                                 <rect key="frame" x="60" y="461" width="62.666666666666657" height="22"/>
@@ -288,6 +288,15 @@
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LUP-zh-9Bw">
+                                <rect key="frame" x="60" y="427" width="255" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="TRj-mc-sLO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95866558840000005" green="0.95615552989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -299,6 +308,7 @@
                             <constraint firstItem="k5R-H4-6dV" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="8DM-aP-mvJ"/>
                             <constraint firstItem="sSP-fK-uwA" firstAttribute="top" secondItem="W0f-He-Ugl" secondAttribute="bottom" constant="8" id="9H6-4c-KfR"/>
                             <constraint firstItem="T24-TD-gcB" firstAttribute="top" secondItem="KDL-lI-iqp" secondAttribute="bottom" constant="35" id="C2d-gI-8J5"/>
+                            <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="LUP-zh-9Bw" secondAttribute="trailing" constant="60" id="DEq-9r-SCl"/>
                             <constraint firstItem="OHQ-Uu-pyO" firstAttribute="top" secondItem="k5R-H4-6dV" secondAttribute="bottom" constant="8" id="Fad-J1-UNt"/>
                             <constraint firstItem="yrS-yp-piS" firstAttribute="top" secondItem="qgl-Ph-nFO" secondAttribute="top" constant="39" id="K8l-tu-XMd"/>
                             <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="OHQ-Uu-pyO" secondAttribute="trailing" constant="60" id="KL3-aC-amg"/>
@@ -310,8 +320,10 @@
                             <constraint firstItem="sSP-fK-uwA" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="XRb-Yl-Tn8"/>
                             <constraint firstItem="W0f-He-Ugl" firstAttribute="top" secondItem="Mla-cr-BHa" secondAttribute="bottom" constant="35" id="YMp-t8-HFi"/>
                             <constraint firstItem="zcW-gC-9FS" firstAttribute="top" secondItem="OHQ-Uu-pyO" secondAttribute="bottom" constant="50" id="dDi-NC-Big"/>
+                            <constraint firstItem="LUP-zh-9Bw" firstAttribute="leading" secondItem="sSP-fK-uwA" secondAttribute="leading" id="dT0-xK-aVN"/>
                             <constraint firstItem="X5C-6h-UwQ" firstAttribute="top" secondItem="OHQ-Uu-pyO" secondAttribute="bottom" constant="50" id="g2q-na-BCe"/>
                             <constraint firstItem="KDL-lI-iqp" firstAttribute="leading" secondItem="UAM-1L-khY" secondAttribute="leading" id="mUx-6H-urQ"/>
+                            <constraint firstItem="LUP-zh-9Bw" firstAttribute="top" secondItem="sSP-fK-uwA" secondAttribute="bottom" constant="1" id="qFV-iM-IMA"/>
                             <constraint firstItem="Mla-cr-BHa" firstAttribute="top" secondItem="T24-TD-gcB" secondAttribute="bottom" constant="8" id="qte-HN-BE4"/>
                             <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="KDL-lI-iqp" secondAttribute="trailing" constant="60" id="reL-0a-Gth"/>
                             <constraint firstItem="qgl-Ph-nFO" firstAttribute="trailing" secondItem="sSP-fK-uwA" secondAttribute="trailing" constant="60" id="tbe-q6-s07"/>
@@ -322,6 +334,8 @@
                     </view>
                     <connections>
                         <outlet property="birthDateTextField" destination="KDL-lI-iqp" id="GtY-kb-aeh"/>
+                        <outlet property="emailAssistLabel" destination="LUP-zh-9Bw" id="dUu-d5-vRY"/>
+                        <outlet property="emailTextField" destination="sSP-fK-uwA" id="5h1-5q-F2h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ma-pd-Vyr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

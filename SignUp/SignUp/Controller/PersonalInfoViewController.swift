@@ -12,18 +12,20 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var birthDateTextField: UITextField!
     let datePicker: UIDatePicker = UIDatePicker()
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var emailAssistLabel: UILabel!
     
     var selectedGender: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         birthDateTextField.delegate = self
+        emailTextField.delegate = self
         
         datePicker.addTarget(self, action: #selector(selectDate(_:)), for: .valueChanged)
-        
     }
     
-   
+    
     @IBAction func selectGender(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -53,7 +55,29 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        setUpDatePicker()
+        if textField == birthDateTextField { setUpDatePicker() }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.layer.borderWidth = 1.0
+        
+        if textField == emailTextField {
+            if !judgeValidEmail(textField.text!) {
+                emailAssistLabel.text = "이메일 주소를 다시 확인해주세요"
+                emailAssistLabel.textColor = .red
+                textField.layer.borderColor = UIColor.red.cgColor
+            }else {
+                emailAssistLabel.text = ""
+                textField.layer.borderColor = UIColor.black.cgColor
+            }
+        }
+        return true
+    }
+    
+    func judgeValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
