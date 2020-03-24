@@ -15,4 +15,19 @@ public class CustomAdvice {
     public ResponseEntity<ApiResponseMessage> handleError(UnauthorizedException unAuthorized) {
         return unAuthorized.returnErrorMessage();
     }
+
+    @ExceptionHandler(NotUniqueException.class)
+    public ResponseEntity<ApiResponseMessage> handleError(NotUniqueException notUnique) {
+        return notUnique.returnErrorMessage();
+    }
+
+    @ExceptionHandler(WrongFormatException.class)
+    public ResponseEntity<ApiResponseMessage> handleError(WrongFormatException wrongFormat) {
+        return wrongFormat.returnErrorMessage();
+    }
+
+    @ExceptionHandler(NotFoundPath.class)
+    public ResponseEntity<ApiResponseMessage> handleError(NotFoundPath notFoundPath) {
+        return notFoundPath.returnErrorMessage();
+    }
 }
