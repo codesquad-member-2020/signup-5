@@ -35,10 +35,10 @@ function calcAge(year, month, day) {
     let curDay = date.getDate();
     if (curMonth < 10) curMonth = '0' + curMonth;
     if (curDay < 10) curDay = '0' + curDay;
-    const curMMDD = curMonth + curDay;
-    const YYYY = year;
-    const MMDD = month + day;
-    const age = curMMDD < MMDD ? curYear - YYYY - 1 : curYear - YYYY;
+    const curMonthDay = curMonth + curDay;
+    const inputYear = year;
+    const inputMonthDay = month + day;
+    const age = curMonthDay < inputMonthDay ? curYear - inputYear - 1 : curYear - inputYear;
     return age;
 }
 

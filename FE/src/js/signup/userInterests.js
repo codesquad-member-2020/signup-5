@@ -10,7 +10,7 @@ export function addInterests({ key }, tagUiWrap, signupInterests) {
         tags.push(interest);
         return updateTag(tagUiWrap);
     }
-    return '';
+    return checkInterests();
 }
 
 export function removeInterests({ key }, tagUiWrap, signupInterests) {
@@ -18,7 +18,7 @@ export function removeInterests({ key }, tagUiWrap, signupInterests) {
         signupInterests.value = tags.pop() + ' ';
         return updateTag(tagUiWrap);
     }
-    return '';
+    return checkInterests();
 }
 
 export function removeInterestsOnClick({ target }, tagUiWrap) {
@@ -28,7 +28,7 @@ export function removeInterestsOnClick({ target }, tagUiWrap) {
         tags.splice(index, 1);
         return updateTag(tagUiWrap);
     }
-    return '';
+    return checkInterests();
 }
 
 export function resetTag() {

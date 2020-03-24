@@ -10,3 +10,6 @@ export function signupResetBtnHandle(resetTag) {
         stateText.forEach(el => el.innerHTML = '');
     }
 }
+
+
+// 가입하기
