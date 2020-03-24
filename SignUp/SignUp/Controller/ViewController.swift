@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var idTextField: IdTextField!
-    @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var passwordTextField: PasswordTextField!
     @IBOutlet var passwordConfirmTF: UITextField!
     @IBOutlet var nameTF: UITextField!
     
@@ -20,22 +20,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordConfirmAssistLabel: UILabel!
     @IBOutlet var nameAssistLabel: UILabel!
     
-    private var isValidPassword = false
     private var isValidPasswordConfirm = false
     private var isValidName = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordTextField.delegate = self
         passwordConfirmTF.delegate = self
         nameTF.delegate = self
         setUpUI()
         
         NotificationCenter.default.addObserver(self, selector: #selector(inputIdAssistComment(_:)), name: .idAssistance, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(inputPasswordAssistComment(_:)), name: .passwordAssistance, object: nil)
     }
     
     func setUpUI() {
-        passwordTextField.layer.borderWidth = 1.0
         passwordConfirmTF.layer.borderWidth = 1.0
         nameTF.layer.borderWidth = 1.0
     }
@@ -43,10 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         switch textField {
-        case passwordTextField:
-            judgeValidPassword(textField)
-            let newLength = textField.text!.count + string.count - range.length
-            return !(newLength > 16)
+            
         case passwordConfirmTF:
             judgeCorrespondPassword(textField)
         case nameTF:
@@ -63,32 +58,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    func judgeValidPassword(_ textField: UITextField) {
-        let text = textField.text!
-        passwordAssistLabel.textColor = .red
-        textField.layer.borderColor = UIColor.red.cgColor
-        let specialCharacters = ["!","@","#","$","%"]
-        
-        let isContainUpperCase = text.contains(where: { $0.isUppercase})
-        let isContainNumeric = text.contains(where: { $0.isNumber })
-        let isContainSpecialCharacter = text.contains(where: { specialCharacters.contains(String($0)) })
-        
-        if text.count > 16 || text.count < 8 {
-            passwordAssistLabel.text = "8자 이상 16자 이하로 입력해주세요."
-        }else if !isContainUpperCase {
-            passwordAssistLabel.text = "영문 대문자를 최소 1자 이상 포함해주세요."
-        }else if !isContainNumeric {
-            passwordAssistLabel.text = "숫자를 최소 1자 이상 포함해주세요."
-        }else if !isContainSpecialCharacter {
-            passwordAssistLabel.text = "특수문자를 최소 1자 이상 포함해주세요."
-        }else {
-            passwordAssistLabel.text = "안전한 비밀번호입니다."
-            passwordAssistLabel.textColor = .green
-            textField.layer.borderColor = UIColor.black.cgColor
-            isValidPassword = true
-        }
-        
-    }
     
     func judgeCorrespondPassword(_ textField: UITextField) {
         let text = textField.text!
@@ -120,7 +89,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func pressNextBtn(_ sender: Any) {
         
-        if idTextField.judgeValidValue(), isValidPassword, isValidPasswordConfirm, isValidName {
+        if idTextField.judgeValidValue(), passwordTextField.judgeValidValue(), isValidPasswordConfirm, isValidName {
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView") as? PersonalInfoViewController{
                 
                 vc.modalPresentationStyle = .fullScreen
@@ -135,6 +104,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
         idAssistLabel.textColor = format.color
     }
     
+    @objc func inputPasswordAssistComment(_ notification: Notification) {
+        guard let format = notification.userInfo?["format"] as? (message: String, color: UIColor) else { return }
+        passwordAssistLabel.text = format.message
+        passwordAssistLabel.textColor = format.color
+    }
 }
 
 extension Notification.Name {
