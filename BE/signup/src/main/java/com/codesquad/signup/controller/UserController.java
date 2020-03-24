@@ -1,8 +1,11 @@
 package com.codesquad.signup.controller;
 
+import com.codesquad.signup.repository.ApiResponseMessage;
 import com.codesquad.signup.repository.User;
 import com.codesquad.signup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +19,8 @@ public class UserController {
 
     @PostMapping("/join")
     @ResponseBody
-    public User joinUser(@RequestBody User user) {
-        return userRepository.save(user);
+    public ResponseEntity<ApiResponseMessage> joinUser(@RequestBody User user) {
+        User newUser = userRepository.save(user);
+        return new ResponseEntity<>(new ApiResponseMessage("SUCCESS",newUser), HttpStatus.OK);
     }
 }
