@@ -1,4 +1,5 @@
 import { getElements } from '../util/commonUtil.js';
+import { STATE_LOG, FORM_RULES } from '../constants/constant.js';
 
 const tags = [];
 
@@ -36,8 +37,8 @@ export function resetTag() {
 }
 
 function checkInterests() {
-    if (tags.length < 3) return '3개 이상의 관심사를 입력하세요.';
-    return '';
+    if (tags.length < FORM_RULES.INTERESTS_MIN) return STATE_LOG.INVALID.INTERESTS;
+    return STATE_LOG.VALID.BASE;
 }
 
 function createTag(interest) {

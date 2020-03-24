@@ -1,7 +1,8 @@
 import { getElement, getElements } from '../util/commonUtil.js';
+import { ALERT_LOG } from '../constants/constant.js';
 
 export function signupResetBtnHandle(resetTag) {
-    if (confirm('모든 내용을 새로 작성하시겠습니까?')) {
+    if (confirm(ALERT_LOG.RESET)) {
         const signupFormWrap = getElement('.signup-form-wrap');
         signupFormWrap.reset();
         resetTag();
