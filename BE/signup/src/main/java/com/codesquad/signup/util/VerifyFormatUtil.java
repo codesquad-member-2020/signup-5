@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class VerifyFormatUtil {
 
     public static boolean isCorrectUserIdFormat(String userId) {
-        final String userIdFormat = "^[a-z]{5,20}";
+        final String userIdFormat = "^[a-z0-9-_]{5,20}";
         return isCorrectFormat(userIdFormat, userId);
     }
 
