@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3000A0A52429D5C3005DD7B4 /* IdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3000A0A42429D5C3005DD7B4 /* IdTextField.swift */; };
 		30769F03242664D100D03360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F02242664D100D03360 /* AppDelegate.swift */; };
 		30769F05242664D100D03360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F04242664D100D03360 /* SceneDelegate.swift */; };
 		30769F07242664D100D03360 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F06242664D100D03360 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3000A0A42429D5C3005DD7B4 /* IdTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdTextField.swift; sourceTree = "<group>"; };
 		30769EFF242664D100D03360 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30769F02242664D100D03360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30769F04242664D100D03360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3000A09E2429903B005DD7B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3000A0A62429DB0E005DD7B4 /* TextField */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3000A0A62429DB0E005DD7B4 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				3000A0A42429D5C3005DD7B4 /* IdTextField.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		30769EF6242664D100D03360 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +105,7 @@
 		30769F01242664D100D03360 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				3000A09E2429903B005DD7B4 /* View */,
 				30FCD3302427278000FE4D44 /* Controller */,
 				30769F02242664D100D03360 /* AppDelegate.swift */,
 				30769F04242664D100D03360 /* SceneDelegate.swift */,
@@ -225,6 +244,7 @@
 				30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */,
 				30769F07242664D100D03360 /* ViewController.swift in Sources */,
 				30769F03242664D100D03360 /* AppDelegate.swift in Sources */,
+				3000A0A52429D5C3005DD7B4 /* IdTextField.swift in Sources */,
 				30769F05242664D100D03360 /* SceneDelegate.swift in Sources */,
 				30FCD334242727C900FE4D44 /* TermsViewController.swift in Sources */,
 			);
