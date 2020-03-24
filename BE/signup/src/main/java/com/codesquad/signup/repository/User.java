@@ -33,4 +33,18 @@ public class User {
         return this.password.equals(password);
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+               "id=" + id +
+               ", userId='" + userId + '\'' +
+               ", password='" + password + '\'' +
+               ", name='" + name + '\'' +
+               ", birthday=" + birthday +
+               ", sex='" + sex + '\'' +
+               ", email='" + email + '\'' +
+               ", phoneNumber='" + phoneNumber + '\'' +
+               ", interest='" + interest + '\'' +
+               '}';
+    }
 }
