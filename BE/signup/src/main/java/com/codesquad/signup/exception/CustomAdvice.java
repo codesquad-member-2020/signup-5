@@ -30,9 +30,4 @@ public class CustomAdvice {
     public ResponseEntity<ApiResponseMessage> handleError(NotFoundPath notFoundPath) {
         return notFoundPath.returnErrorMessage();
     }
-
-    @ExceptionHandler(UserJoinFailedException.class)
-    public ResponseEntity<ApiResponseMessage> handleError(UserJoinFailedException userJoinFailed) {
-        return userJoinFailed.returnErrorMessage();
-    }
 }
