@@ -20,10 +20,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordConfirmAssistLabel: UILabel!
     @IBOutlet var nameAssistLabel: UILabel!
     
-    var isValidId = false
-    var isValidPassword = false
-    var isValidPasswordConfirm = false
-    var isValidName = false
+   private var isValidId = false
+   private var isValidPassword = false
+   private var isValidPasswordConfirm = false
+   private var isValidName = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
