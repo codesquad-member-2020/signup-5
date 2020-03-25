@@ -8,14 +8,18 @@ export function checkYear(year) {
     return checkBirthDate();
 }
 
+export function checkMonth(month) {
+    signupData.month = month;
+    return checkBirthDate();
+}
+
 export function checkDay(day) {
     signupData.day = null;
     if (day.length < FORM_RULES.DAY_MIN_LENGTH || day.length > FORM_RULES.DAY_MAX_LENGTH) return STATE_MESSAGE.INVALID.BIRTH_DATE.DAY;
     return checkBirthDate();
 }
 
-export function checkBirthDate() {
-    signupData.month = null;
+function checkBirthDate() {
     const inputYear = getElement('#birth-date-year').value;
     const inputMonth = getElement('#birth-date-month').value;
     const inputDay = getElement('#birth-date-day').value;
@@ -25,7 +29,6 @@ export function checkBirthDate() {
     if (lastDay < inputDay) return STATE_MESSAGE.INVALID.BIRTH_DATE.BASE;
     if (!checkAge(inputYear, inputMonth, inputDay)) return STATE_MESSAGE.INVALID.BIRTH_DATE.AGE;
     signupData.year = inputYear;
-    signupData.month = inputMonth;
     signupData.day = inputDay < FORM_RULES.NOT_DIGIT ? '0' + inputDay : inputDay;
     return STATE_MESSAGE.VALID.BASE;
 }

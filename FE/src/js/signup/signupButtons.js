@@ -1,8 +1,9 @@
 import { ALERT_MESSAGE } from '../constants/constant.js';
 import { URL } from '../constants/url.js';
 import { getElement, getElements } from '../util/commonUtil.js';
-import { signupData, makeSignupJSON, resetSignupData } from '../data/signupData.js';
+import { resetSignupData, signupData, makeSignupJSON } from '../data/signupData.js';
 import { resetTag } from './userInterests.js';
+import { clausesAgreeBtnToggle } from './clauses.js';
 
 export function signupResetBtnHandle() {
     if (!confirm(ALERT_MESSAGE.RESET)) return;
@@ -10,6 +11,7 @@ export function signupResetBtnHandle() {
     const stateText = getElements('.state-text');
     signupFormWrap.reset();
     stateText.forEach(el => el.innerHTML = '');
+    clausesAgreeBtnToggle(false);
     resetSignupData();
     resetTag();
 }

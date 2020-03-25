@@ -1,7 +1,7 @@
 import { getElement } from '../util/commonUtil.js';
 import { updateState, updateStateInterests } from '../util/signupUtil.js';
 import { checkId, checkPassword, recheckPassword } from './userIdPassword.js';
-import { checkYear, checkDay, checkBirthDate, checkEmail, checkPhoneNumber, checkName, checkGender } from './userPersonalData.js';
+import { checkYear, checkMonth, checkDay, checkEmail, checkPhoneNumber, checkName, checkGender } from './userPersonalData.js';
 import { addInterests, removeInterests, removeInterestsOnClick } from './userInterests.js';
 import { openClauses, closeClauses, activeClausesAgreeBtn, clausesAgree } from './clauses.js';
 import { signupResetBtnHandle, signupJoinBtnHandle } from './signupButtons.js';
@@ -48,7 +48,7 @@ function formChageEventDelegation({ target }) {
             break;
         case 'birth-date-year': updateState(checkYear, target);
             break;
-        case 'birth-date-month': updateState(checkBirthDate, target);
+        case 'birth-date-month': updateState(checkMonth, target);
             break;
         case 'birth-date-day': updateState(checkDay, target);
             break;
