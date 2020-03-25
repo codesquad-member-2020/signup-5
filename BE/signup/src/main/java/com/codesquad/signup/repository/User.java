@@ -50,15 +50,6 @@ public class User {
   public void checkValidUser() {
     log.debug("### isValidUser()");
 
-//    final String WRONG_FORMAT = "잘못된 형식입니다. ";
-//    final String USER_ID_FORMAT = "아이디 (5~20자의 영 소문자, 숫자, 특수기호(_), (-))";
-//    final String PASSWORD_FORMAT = "비밀번호 (8~16자의 영문 대, 소문자, 숫자, 특수문자의 조합)";
-//    final String EMAIL_FORMAT = "이메일 (xxx@xxx.xxx)";
-//    final String PHONE_NUMBER_FORMAT = "전화번호 (앞 3자리의 숫자는 010 인 10자리 또는 11자리의 숫자)";
-//    final String INTEREST_FORMAT = "관심사 (3개 이상)";
-//    final String NULL_EXECPTION = "null 은 허용되지 않습니다.";
-//    final String BLANK_EXECPTION = "빈칸은 허용되지 않습니다.";
-
     if (!isCorrectUserIdFormat(userId)) {
       log.debug("### ERROR : isCorrectUserIdFormat");
       throw new WrongFormatException(WRONG_FORMAT + USER_ID_FORMAT);
