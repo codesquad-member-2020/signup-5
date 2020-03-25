@@ -26,6 +26,8 @@ public class VerifyFormatUtil {
     }
 
     private static boolean isCorrectFormat(String pattern, String inputValue) {
+        if (inputValue == null) return false;
+
         Pattern passwordPattern = Pattern.compile(pattern);
         Matcher matcher = passwordPattern.matcher(inputValue);
         if (!matcher.find()) {
