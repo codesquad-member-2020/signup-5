@@ -12,8 +12,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var idTextField: IdTextField!
     @IBOutlet var passwordTextField: PasswordTextField!
-    @IBOutlet var passwordConfirmTF: PasswordConfirmTextField!
-    @IBOutlet var nameTF: NameTextField!
+    @IBOutlet var passwordConfirmTextField: PasswordConfirmTextField!
+    @IBOutlet var nameTextField: NameTextField!
     
     @IBOutlet var idAssistLabel: UILabel!
     @IBOutlet var passwordAssistLabel: UILabel!
@@ -40,13 +40,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
-    @IBAction func pressNextBtn(_ sender: Any) {
+    @IBAction func moveNextScene(_ sender: Any) {
         
-        if idTextField.judgeValidValue(), passwordTextField.judgeValidValue(), passwordConfirmTF.judgeValidValue(), nameTF.judgeValidValue() {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView") as? PersonalInfoViewController{
+        if idTextField.judgeValidValue(), passwordTextField.judgeValidValue(), passwordConfirmTextField.judgeValidValue(), nameTextField.judgeValidValue() {
+            if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView") as? PersonalInfoViewController{
                 
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                nextScene.modalPresentationStyle = .fullScreen
+                self.present(nextScene, animated: true)
             }
         }
     }
