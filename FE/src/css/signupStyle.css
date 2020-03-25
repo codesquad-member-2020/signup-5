@@ -1,0 +1,233 @@
+/* common */
+
+.signup-form-wrap, .clauses-wrap {
+    width: 500px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    background-color: #F8F9FA;
+    box-sizing: border-box;
+}
+
+/* signup */
+
+.signup-content {
+    position: relative;
+    width: 470px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.signup-title {
+    text-align: center;
+    color: #23cf19;
+    font-weight: bold;
+    font-size: 35px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.signup-content label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.signup-content input, .signup-content select {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    outline: none;
+    border: 1px solid #afafaf;
+    display: block;
+    width: 100%;
+    height: 40px;
+    text-indent: 10px;
+    border-radius: 0;
+}
+
+.signup-content input:focus, .signup-content select:focus {
+    border: 1px solid #23cf19;
+}
+
+.signup-content .state-text {
+    margin-top: 3px;
+    height: 13px;
+    font-size: 13px;
+    color: #f00;
+}
+
+.signup-content .state-text>span {
+    color: #23cf19;
+}
+
+.signup-content .birth-date-input-wrap {
+    display: flex;
+}
+
+.birth-date-input-wrap>select {
+    margin: 0 15px;
+}
+
+.tags-input-wrap {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #afafaf;
+    background-color: #fff;
+}
+
+.tag-ui-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag-ui-wrap .tag-ui {
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+}
+
+.tag-ui .tag-ui-close {
+    font-size: 13px;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.tag-ui-wrap input {
+    flex: 1;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    text-indent: 10px;
+}
+
+.tag-ui-wrap input:focus {
+    border: none;
+}
+
+.signup-content .clauses-agree-text {
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signup-content .clauses-agree-checkbox {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
+    margin: 0;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.signup-content .signup-btns-wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.signup-btns-wrap>button {
+    background-color: #23cf19;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    width: 227.5px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* clauses */
+
+.clauses-wrap {
+    display: none;
+}
+
+.clauses-wrap.active {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: -125px -250px;
+}
+
+.clauses-wrap-blind.active {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+}
+
+.clauses-content {
+    width: 450px;
+    margin: 20px auto;
+}
+
+.clauses-title {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.clauses-text-box {
+    padding: 10px;
+    line-height: 18px;
+    font-size: 13px;
+    width: 100%;
+    height: 130px;
+    overflow: auto;
+    margin-bottom: 20px;
+    outline: 1px solid #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.clauses-text-box::-webkit-scrollbar {
+    width: 9px;
+}
+
+.clauses-text-box::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+}
+
+.clauses-text-box::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+.clauses-agree-btn {
+    width: 180px;
+    height: 45px;
+    margin: 0 auto;
+    display: block;
+    background-color: #ccc;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+}
+
+.clauses-agree-btn.active {
+    background-color: #23cf19;
+    cursor: pointer;
+}
+
+.clauses-close-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
