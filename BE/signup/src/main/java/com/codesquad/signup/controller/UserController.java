@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @Slf4j
 @RestController
 public class UserController {
@@ -29,9 +27,13 @@ public class UserController {
 
     final String ERROR_MESSAGE = "회원 가입에 실패했습니다.";
 
-    user.isValidUser();
-    User joinedUser = Optional.of(userRepository.save(user))
-        .orElseThrow(() -> new UserJoinFailedException(ERROR_MESSAGE));
-    return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", joinedUser), HttpStatus.OK);
+    user.checkValidUser();
+
+    try {
+      User joinedUser = userRepository.save(user);
+      return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", joinedUser), HttpStatus.OK);
+    } catch (Exception e) {
+      throw new UserJoinFailedException(ERROR_MESSAGE);
+    }
   }
 }
