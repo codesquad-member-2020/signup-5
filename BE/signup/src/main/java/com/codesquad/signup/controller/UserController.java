@@ -29,7 +29,7 @@ public class UserController {
 
     final String ERROR_MESSAGE = "회원 가입에 실패했습니다.";
 
-    user.isValidUser();
+    user.checkValidUser();
     User joinedUser = Optional.of(userRepository.save(user))
         .orElseThrow(() -> new UserJoinFailedException(ERROR_MESSAGE));
     return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", joinedUser), HttpStatus.OK);

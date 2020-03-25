@@ -40,11 +40,11 @@ public class User {
 
   /**
    * Feat : 적절한 User 인지 확인 합니다.
-   * Desc : userId, passwd, name 중 한개라도 nunll 또는 공백이라면 false 를 리턴합니다.
+   * Desc : userId, passwd, email, phoneNumber, interest 중 한개라도 format 에 맞지 않는다면 false 를 리턴합니다.
    * Desc : userId, passwd 가 format 에 맞지 않다면 false 를 리턴합니다.
    * Return : boolean
    */
-  public boolean isValidUser() {
+  public void checkValidUser() {
     log.debug("### isValidUser()");
 
     final String WRONG_FORMAT = "잘못된 형식입니다.";
@@ -52,25 +52,37 @@ public class User {
     final String PASSWORD_FORMAT = " 비밀번호 (8~16자의 영문 대, 소문자, 숫자, 특수문자의 조합)";
     final String EMAIL_FORMAT = " 이메일 (xxx@xxx.xxx)";
     final String PHONE_NUMBER_FORMAT = " 전화번호 (앞 3자리의 숫자는 010 인 10자리 또는 11자리의 숫자)";
+    final String INTEREST_FORMAT = " 관심사 (3개 이상)";
+    final String NULL_EXECPTION = " null 은 허용되지 않습니다.";
+    final String BLANK_EXECPTION = " 빈칸은 허용되지 않습니다.";
 
     if (!isCorrectUserIdFormat(this.userId)) {
-      log.debug("### isCorrectUserIdFormat");
+      log.debug("### ERROR : isCorrectUserIdFormat");
       throw new WrongFormatException(WRONG_FORMAT + USER_ID_FORMAT);
     }
     if (!isCorrectPasswordFormat(this.password)) {
-      log.debug("### isCorrectPasswordFormat");
+      log.debug("### ERROR : isCorrectPasswordFormat");
       throw new WrongFormatException(WRONG_FORMAT + PASSWORD_FORMAT);
     }
     if (!isCorrectEmailFormat(this.email)) {
-      log.debug("### isCorrectEmailFormat");
+      log.debug("### ERROR : isCorrectEmailFormat");
       throw new WrongFormatException(WRONG_FORMAT + EMAIL_FORMAT);
     }
     if (!isCorrectPhoneNumberFormat(this.phoneNumber)) {
-      log.debug("### isCorrectEmailFormat");
+      log.debug("### ERROR : isCorrectPhoneNumberFormat");
       throw new WrongFormatException(WRONG_FORMAT + PHONE_NUMBER_FORMAT);
     }
+    if (!isCorrectInterestFormat(this.interest)) {
+      log.debug("### ERROR : isCorrectInterestFormat");
+      throw new WrongFormatException(WRONG_FORMAT + INTEREST_FORMAT);
+    }
 
-    return true;
+    if (this.name == null || this.birthday == null || this.sex == null) {
+      throw new WrongFormatException(WRONG_FORMAT + NULL_EXECPTION);
+    }
+    if (this.name.equals("") || this.sex.equals("")) {
+      throw new WrongFormatException(WRONG_FORMAT + BLANK_EXECPTION);
+    }
   }
 
   @Override
