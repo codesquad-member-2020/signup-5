@@ -374,7 +374,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="정보통신망법 규정에 따라 코드스쿼드에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9Ij-aA-7Xk">
-                                <rect key="frame" x="32" y="149" width="311" height="551"/>
+                                <rect key="frame" x="32" y="149" width="311" height="477"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -385,22 +385,25 @@
                         <constraints>
                             <constraint firstItem="9Ij-aA-7Xk" firstAttribute="leading" secondItem="ZZo-kf-ATW" secondAttribute="leading" constant="32" id="1zm-uy-fnF"/>
                             <constraint firstItem="hIj-LJ-dPU" firstAttribute="centerX" secondItem="hAF-Wc-7wJ" secondAttribute="centerX" id="49B-bn-kHh"/>
-                            <constraint firstItem="ZZo-kf-ATW" firstAttribute="bottom" secondItem="9Ij-aA-7Xk" secondAttribute="bottom" constant="78" id="4wI-AZ-DCK"/>
+                            <constraint firstItem="ZZo-kf-ATW" firstAttribute="bottom" secondItem="9Ij-aA-7Xk" secondAttribute="bottom" constant="152" id="4wI-AZ-DCK"/>
                             <constraint firstItem="9Ij-aA-7Xk" firstAttribute="centerX" secondItem="hAF-Wc-7wJ" secondAttribute="centerX" id="Qov-lC-z8P"/>
                             <constraint firstItem="hIj-LJ-dPU" firstAttribute="top" secondItem="ZZo-kf-ATW" secondAttribute="top" constant="39" id="bQb-sJ-WVp"/>
                             <constraint firstItem="9Ij-aA-7Xk" firstAttribute="top" secondItem="hIj-LJ-dPU" secondAttribute="bottom" constant="42" id="vbO-vC-MCg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZZo-kf-ATW"/>
                     </view>
+                    <connections>
+                        <outlet property="termsDescriptionTextView" destination="9Ij-aA-7Xk" id="EDA-sd-rMw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYv-gR-3XQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.826086956522" y="132.58928571428572"/>
+            <point key="canvasLocation" x="1746.4000000000001" y="132.26600985221674"/>
         </scene>
         <!--Interest View Controller-->
         <scene sceneID="tVc-H4-z3E">
             <objects>
-                <viewController id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestViewController" id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jmh-mv-5t9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
