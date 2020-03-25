@@ -12,7 +12,7 @@ export const VALID_CHECK_REGEX = {
 
 export const STATE_MESSAGE = {
     VALID: {
-        BASE: '',
+        DEFALUT: ' ',
         ID: '<span>사용 가능한 아이디입니다.</span>',
         PASSWORD: '<span>안전한 비밀번호입니다.</span>',
         PASSWORD_RECHECK: '<span>비밀번호가 일치합니다.</span>',
@@ -27,7 +27,7 @@ export const STATE_MESSAGE = {
         },
         PASSWORD_RECHECK: '비밀번호가 일치하지 않습니다.',
         BIRTH_DATE: {
-            BASE: '태어난 날짜를 다시 확인해주세요.',
+            BASE: '생년월일을 모두 입력해주세요.',
             YEAR: '태어난 년도 4자리를 정확하게 입력하세요.',
             DAY: '태어난 날짜를 정확하게 입력하세요.',
             AGE: '만 14세 이상 99세 이하만 가입 가능합니다.'

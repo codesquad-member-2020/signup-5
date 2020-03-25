@@ -5,16 +5,16 @@ import { signupData } from '../data/signupData.js';
 const tags = [];
 
 export function addInterests({ key }, tagUiWrap, signupInterests) {
-    if (key !== ',') return checkInterests();
+    if (key !== ',') return;
     const interest = signupInterests.value.replace(/[,]/g, '');
     signupInterests.value = '';
-    if (!interest) return checkInterests();
+    if (!interest) return;
     tags.push(interest);
     return updateTag(tagUiWrap);
 }
 
 export function removeInterests({ key }, tagUiWrap, signupInterests) {
-    if (!checkRemoveCondition(key, signupInterests)) return checkInterests();
+    if (!checkRemoveCondition(key, signupInterests)) return;
     signupInterests.value = tags.pop() + ' ';
     return updateTag(tagUiWrap);
 }
@@ -25,7 +25,7 @@ function checkRemoveCondition(key, signupInterests) {
 }
 
 export function removeInterestsOnClick({ target }, tagUiWrap) {
-    if (!target.classList.contains('tag-ui-close')) return checkInterests();
+    if (!target.classList.contains('tag-ui-close')) return;
     const data = target.getAttribute('data-item');
     const index = tags.indexOf(data);
     tags.splice(index, 1);
@@ -40,7 +40,7 @@ function checkInterests() {
     signupData.interest = null;
     if (tags.length < FORM_RULES.INTERESTS_MIN) return STATE_MESSAGE.INVALID.INTERESTS;
     signupData.interest = tags;
-    return STATE_MESSAGE.VALID.BASE;
+    return STATE_MESSAGE.VALID.DEFALUT;
 }
 
 function createTag(interest) {

@@ -25,12 +25,12 @@ function checkBirthDate() {
     const inputDay = getElement('#birth-date-day').value;
     const lastDay = new Date(inputYear, inputMonth, 0).getDate();
 
-    if (!inputYear || !inputMonth || !inputDay) return STATE_MESSAGE.VALID.BASE;
-    if (lastDay < inputDay) return STATE_MESSAGE.INVALID.BIRTH_DATE.BASE;
+    if (!inputYear || !inputMonth || !inputDay) return STATE_MESSAGE.INVALID.BIRTH_DATE.BASE;
+    if (lastDay < inputDay || 0 >= inputDay) return STATE_MESSAGE.INVALID.BIRTH_DATE.DAY;
     if (!checkAge(inputYear, inputMonth, inputDay)) return STATE_MESSAGE.INVALID.BIRTH_DATE.AGE;
     signupData.year = inputYear;
     signupData.day = inputDay < FORM_RULES.NOT_DIGIT ? '0' + inputDay : inputDay;
-    return STATE_MESSAGE.VALID.BASE;
+    return;
 }
 
 function checkAge(year, month, day) {
@@ -58,7 +58,7 @@ export function checkEmail(email) {
     const checkEmail = email.search(VALID_CHECK_REGEX.EMAIL);
     if (checkEmail) return STATE_MESSAGE.INVALID.EMAIL;
     signupData.email = email;
-    return STATE_MESSAGE.VALID.BASE;
+    return;
 }
 
 export function checkPhoneNumber(number) {
@@ -66,7 +66,7 @@ export function checkPhoneNumber(number) {
     const checkNumber = number.search(VALID_CHECK_REGEX.PHONE_NUMBER);
     if (checkNumber) return STATE_MESSAGE.INVALID.PHONE_NUMBER;
     signupData.phoneNumber = number;
-    return STATE_MESSAGE.VALID.BASE;
+    return;
 }
 
 export function checkName(name) {
