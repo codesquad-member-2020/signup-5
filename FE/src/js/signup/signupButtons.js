@@ -1,4 +1,5 @@
 import { ALERT_MESSAGE } from '../constants/constant.js';
+import { URL } from '../constants/url.js';
 import { getElement, getElements } from '../util/commonUtil.js';
 import { signupData, makeSignupJSON, resetSignupData } from '../data/signupData.js';
 import { resetTag } from './userInterests.js';
@@ -20,8 +21,7 @@ export function signupJoinBtnHandle() {
             return;
         }
     }
-
-    // makeSignupJSON();
+    joinRequest();
 }
 
 function notifyJoinError(key) {
@@ -50,4 +50,17 @@ function notifyJoinError(key) {
             break;
         case "clausesAgree": alert(ALERT_MESSAGE.JOIN_INVALID.CLAUSES);
     }
+}
+
+function joinRequest() {
+    const data = makeSignupJSON();
+    const tempURL = URL.DEV.CORS_API + URL.PROD.JOIN_API;
+    fetch(tempURL, {
+        method: 'POST',
+        mode: 'cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+    })
+        .then(res => res.json())
+        .then(json => console.log(json));
 }
