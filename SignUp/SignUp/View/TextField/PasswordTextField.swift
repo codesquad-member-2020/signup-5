@@ -59,6 +59,7 @@ class PasswordTextField: UITextField, UITextFieldDelegate {
             assistColor = .green
             textField.layer.borderColor = UIColor.black.cgColor
             isValidPassword = true
+            NotificationCenter.default.post(name: .changedPassword, object: nil, userInfo: ["password":text])
         }
         
         NotificationCenter.default.post(name: .passwordAssistance, object: nil, userInfo: ["format":( message: assistMessage, color: assistColor)])
@@ -69,4 +70,5 @@ class PasswordTextField: UITextField, UITextFieldDelegate {
         return isValidPassword
     }
     
+  
 }

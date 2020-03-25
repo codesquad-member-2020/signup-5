@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3000A0A52429D5C3005DD7B4 /* IdTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3000A0A42429D5C3005DD7B4 /* IdTextField.swift */; };
 		3036A8C3242A44C500436DFF /* PasswordTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A8C2242A44C500436DFF /* PasswordTextField.swift */; };
+		3036A8C5242A4B5200436DFF /* PasswordConfirmTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A8C4242A4B5200436DFF /* PasswordConfirmTextField.swift */; };
+		3036A8C7242A4BBA00436DFF /* NameTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036A8C6242A4BBA00436DFF /* NameTextField.swift */; };
 		30769F03242664D100D03360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F02242664D100D03360 /* AppDelegate.swift */; };
 		30769F05242664D100D03360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F04242664D100D03360 /* SceneDelegate.swift */; };
 		30769F07242664D100D03360 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30769F06242664D100D03360 /* ViewController.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		3000A0A42429D5C3005DD7B4 /* IdTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdTextField.swift; sourceTree = "<group>"; };
 		3036A8C2242A44C500436DFF /* PasswordTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextField.swift; sourceTree = "<group>"; };
+		3036A8C4242A4B5200436DFF /* PasswordConfirmTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordConfirmTextField.swift; sourceTree = "<group>"; };
+		3036A8C6242A4BBA00436DFF /* NameTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTextField.swift; sourceTree = "<group>"; };
 		30769EFF242664D100D03360 /* SignUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30769F02242664D100D03360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30769F04242664D100D03360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,8 @@
 			children = (
 				3000A0A42429D5C3005DD7B4 /* IdTextField.swift */,
 				3036A8C2242A44C500436DFF /* PasswordTextField.swift */,
+				3036A8C4242A4B5200436DFF /* PasswordConfirmTextField.swift */,
+				3036A8C6242A4BBA00436DFF /* NameTextField.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -245,8 +251,10 @@
 				30FCD338242727F700FE4D44 /* LoginViewController.swift in Sources */,
 				30FCD336242727E600FE4D44 /* InterestViewController.swift in Sources */,
 				3036A8C3242A44C500436DFF /* PasswordTextField.swift in Sources */,
+				3036A8C5242A4B5200436DFF /* PasswordConfirmTextField.swift in Sources */,
 				30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */,
 				30769F07242664D100D03360 /* ViewController.swift in Sources */,
+				3036A8C7242A4BBA00436DFF /* NameTextField.swift in Sources */,
 				30769F03242664D100D03360 /* AppDelegate.swift in Sources */,
 				3000A0A52429D5C3005DD7B4 /* IdTextField.swift in Sources */,
 				30769F05242664D100D03360 /* SceneDelegate.swift in Sources */,
