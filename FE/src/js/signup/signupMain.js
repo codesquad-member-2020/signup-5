@@ -1,4 +1,4 @@
-import { signupEventInit, clausesEventInit } from './signupEventManager.js';
+import { initSignupEvent, initClausesEvent } from './signupEventManager.js';
 
-signupEventInit();
-clausesEventInit();
+initSignupEvent();
+initClausesEvent();

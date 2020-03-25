@@ -1,4 +1,16 @@
-export const STATE_LOG = {
+export const VALID_CHECK_REGEX = {
+    ID: /^[a-z0-9-_]{5,20}$/,
+    PASSWORD: {
+        LENGTH: /.{8,16}$/,
+        UPPER: /^(?=.*[A-Z])/,
+        NUMBER: /^(?=.*[0-9])/,
+        SPECIAL: /^((?=.*\d)|(?=.*\W))/
+    },
+    EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
+    PHONE_NUMBER: /^010\d{3,4}\d{4}$/
+}
+
+export const STATE_MESSAGE = {
     VALID: {
         BASE: '',
         ID: '<span>사용 가능한 아이디입니다.</span>',
@@ -26,7 +38,7 @@ export const STATE_LOG = {
     }
 }
 
-export const ALERT_LOG = {
+export const ALERT_MESSAGE = {
     RESET: '모든 내용을 새로 작성하시겠습니까?'
 }
 

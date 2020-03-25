@@ -1,5 +1,5 @@
 import { getElements } from '../util/commonUtil.js';
-import { STATE_LOG, FORM_RULES } from '../constants/constant.js';
+import { STATE_MESSAGE, FORM_RULES } from '../constants/constant.js';
 import { signupData } from '../data/signupData.js';
 
 const tags = [];
@@ -39,9 +39,9 @@ export function resetTag() {
 
 function checkInterests() {
     signupData.interest = null;
-    if (tags.length < FORM_RULES.INTERESTS_MIN) return STATE_LOG.INVALID.INTERESTS;
+    if (tags.length < FORM_RULES.INTERESTS_MIN) return STATE_MESSAGE.INVALID.INTERESTS;
     signupData.interest = tags;
-    return STATE_LOG.VALID.BASE;
+    return STATE_MESSAGE.VALID.BASE;
 }
 
 function createTag(interest) {

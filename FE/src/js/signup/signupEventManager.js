@@ -13,22 +13,22 @@ const signupInterests = getElement('#signup-interests');
 const clausesTextBox = getElement('#clauses-text-box');
 const tagUiWrap = getElement('#tag-ui-wrap');
 
-export function signupEventInit() {
-    signupFormWrap.addEventListener('input', formInputEventDelegate);
-    signupFormWrap.addEventListener('change', formChageEventDelegate);
-    signupFormWrap.addEventListener('click', formClickEventDelegate);
+export function initSignupEvent() {
+    signupFormWrap.addEventListener('input', formInputEventDelegation);
+    signupFormWrap.addEventListener('change', formChageEventDelegation);
+    signupFormWrap.addEventListener('click', formClickEventDelegation);
 
     signupInterests.addEventListener('keyup', (event) => updateStateInterests(addInterests, event, tagUiWrap, signupInterests));
     signupInterests.addEventListener('keydown', (event) => updateStateInterests(removeInterests, event, tagUiWrap, signupInterests));
     tagUiWrap.addEventListener('click', (event) => updateStateInterests(removeInterestsOnClick, event, tagUiWrap));
 }
 
-export function clausesEventInit() {
-    clausesWrap.addEventListener('click', clausesClickEventDelegate);
+export function initClausesEvent() {
+    clausesWrap.addEventListener('click', clausesClickEventDelegation);
     clausesTextBox.addEventListener('scroll', ({ target }) => activeClausesAgreeBtn(target));
 }
 
-function formInputEventDelegate({ target }) {
+function formInputEventDelegation({ target }) {
     switch (target.id) {
         case 'signup-password': updateState(checkPassword, target);
             break;
@@ -42,7 +42,7 @@ function formInputEventDelegate({ target }) {
     }
 }
 
-function formChageEventDelegate({ target }) {
+function formChageEventDelegation({ target }) {
     switch (target.id) {
         case 'signup-id': updateState(checkId, target);
             break;
@@ -60,7 +60,7 @@ function formChageEventDelegate({ target }) {
     }
 }
 
-function formClickEventDelegate({ target }) {
+function formClickEventDelegation({ target }) {
     switch (target.id) {
         case 'clauses-agree-text': openClauses(clausesWrapBlind, clausesWrap);
             break;
@@ -70,7 +70,7 @@ function formClickEventDelegate({ target }) {
     }
 }
 
-function clausesClickEventDelegate({ target }) {
+function clausesClickEventDelegation({ target }) {
     switch (target.id) {
         case 'clauses-close-btn': closeClauses(clausesWrapBlind, clausesWrap);
             break;
