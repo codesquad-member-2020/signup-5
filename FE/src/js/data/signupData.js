@@ -35,3 +35,9 @@ export function makeSignupJSON() {
     signupJSON.interest = signupData.interest.join(', ');
     return signupJSON;
 }
+
+export function resetSignupData() {
+    for (let key in signupData) {
+        signupData[key] = null;
+    }
+}

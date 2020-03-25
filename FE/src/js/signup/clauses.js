@@ -1,5 +1,5 @@
-import { getElement, classAdd, classRemove } from '../util/commonUtil.js';
 import { FORM_RULES } from '../constants/constant.js';
+import { getElement, classAdd, classRemove } from '../util/commonUtil.js';
 import { signupData } from '../data/signupData.js';
 
 export function openClauses(...elements) {

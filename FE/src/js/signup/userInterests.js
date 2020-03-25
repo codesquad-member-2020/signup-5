@@ -1,5 +1,5 @@
-import { getElements } from '../util/commonUtil.js';
 import { STATE_MESSAGE, FORM_RULES } from '../constants/constant.js';
+import { getElements } from '../util/commonUtil.js';
 import { signupData } from '../data/signupData.js';
 
 const tags = [];

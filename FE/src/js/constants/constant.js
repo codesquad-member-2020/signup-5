@@ -39,7 +39,18 @@ export const STATE_MESSAGE = {
 }
 
 export const ALERT_MESSAGE = {
-    RESET: '모든 내용을 새로 작성하시겠습니까?'
+    RESET: '모든 내용을 새로 작성하시겠습니까?',
+    JOIN_INVALID: {
+        ID: '아이디를 확인해주세요.',
+        PASSWORD: '비밀번호를 확인해주세요.',
+        NAME: '이름을 확인해주세요.',
+        BIRTH_DATE: '생년월일을 확인해주세요.',
+        GENDER: '성별을 확인해주세요.',
+        EMAIL: '이메일을 확인해주세요.',
+        PHONE_NUMBER: '휴대전화를 확인해주세요.',
+        INTERESTS: '관심사를 확인해주세요.',
+        CLAUSES: '약관에 동의하지 않으셨습니다.'
+    }
 }
 
 export const FORM_RULES = {

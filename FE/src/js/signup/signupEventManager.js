@@ -2,9 +2,9 @@ import { getElement } from '../util/commonUtil.js';
 import { updateState, updateStateInterests } from '../util/signupUtil.js';
 import { checkId, checkPassword, recheckPassword } from './userIdPassword.js';
 import { checkYear, checkDay, checkBirthDate, checkEmail, checkPhoneNumber, checkName, checkGender } from './userPersonalData.js';
-import { addInterests, removeInterests, removeInterestsOnClick, resetTag } from './userInterests.js';
+import { addInterests, removeInterests, removeInterestsOnClick } from './userInterests.js';
 import { openClauses, closeClauses, activeClausesAgreeBtn, clausesAgree } from './clauses.js';
-import { signupResetBtnHandle } from './signupButtons.js';
+import { signupResetBtnHandle, signupJoinBtnHandle } from './signupButtons.js';
 
 const signupFormWrap = getElement('.signup-form-wrap');
 const clausesWrap = getElement('.clauses-wrap');
@@ -64,7 +64,9 @@ function formClickEventDelegation({ target }) {
     switch (target.id) {
         case 'clauses-agree-text': openClauses(clausesWrapBlind, clausesWrap);
             break;
-        case 'signup-reset-btn': signupResetBtnHandle(resetTag);
+        case 'signup-reset-btn': signupResetBtnHandle();
+            break;
+        case 'signup-join-btn': signupJoinBtnHandle();
             break;
         default: break;
     }

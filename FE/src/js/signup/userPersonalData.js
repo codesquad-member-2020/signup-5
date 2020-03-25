@@ -1,5 +1,5 @@
-import { getElement } from '../util/commonUtil.js';
 import { VALID_CHECK_REGEX, STATE_MESSAGE, FORM_RULES } from '../constants/constant.js';
+import { getElement } from '../util/commonUtil.js';
 import { signupData } from '../data/signupData.js';
 
 export function checkYear(year) {
