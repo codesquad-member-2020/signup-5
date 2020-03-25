@@ -1,7 +1,7 @@
 import { getElement } from '../util/commonUtil.js';
 import { updateState, updateStateInterests } from '../util/signupUtil.js';
 import { checkId, checkPassword, recheckPassword } from './userIdPassword.js';
-import { checkYear, checkDay, checkBirthDate, checkEmail, checkPhoneNumber } from './userPersonalData.js';
+import { checkYear, checkDay, checkBirthDate, checkEmail, checkPhoneNumber, checkName, checkGender } from './userPersonalData.js';
 import { addInterests, removeInterests, removeInterestsOnClick, resetTag } from './userInterests.js';
 import { openClauses, closeClauses, activeClausesAgreeBtn, clausesAgree } from './clauses.js';
 import { signupResetBtnHandle } from './signupButtons.js';
@@ -33,6 +33,10 @@ function formInputEventDelegate({ target }) {
         case 'signup-password': updateState(checkPassword, target);
             break;
         case 'signup-password-recheck': updateState(recheckPassword, target, getElement('#signup-password').value);
+            break;
+        case 'signup-name': checkName(target.value);
+            break;
+        case 'signup-gender': checkGender(target.value);
             break;
         default: break;
     }
