@@ -8,7 +8,7 @@ import { signupResetBtnHandle, signupJoinBtnHandle } from './signupButtons.js';
 
 const signupFormWrap = getElement('.signup-form-wrap');
 const clausesWrap = getElement('.clauses-wrap');
-const clausesWrapBlind = getElement('#clauses-wrap-blind');
+const signupBlind = getElement('#signup-blind');
 const signupInterests = getElement('#signup-interests');
 const clausesTextBox = getElement('#clauses-text-box');
 const tagUiWrap = getElement('#tag-ui-wrap');
@@ -62,7 +62,7 @@ function formChageEventDelegation({ target }) {
 
 function formClickEventDelegation({ target }) {
     switch (target.id) {
-        case 'clauses-agree-text': openClauses(clausesWrapBlind, clausesWrap);
+        case 'clauses-agree-text': openClauses(signupBlind, clausesWrap);
             break;
         case 'signup-reset-btn': signupResetBtnHandle();
             break;
@@ -74,9 +74,9 @@ function formClickEventDelegation({ target }) {
 
 function clausesClickEventDelegation({ target }) {
     switch (target.id) {
-        case 'clauses-close-btn': closeClauses(clausesWrapBlind, clausesWrap);
+        case 'clauses-close-btn': closeClauses(signupBlind, clausesWrap);
             break;
-        case 'clauses-agree-btn': clausesAgree(clausesWrapBlind, clausesWrap);
+        case 'clauses-agree-btn': clausesAgree(signupBlind, clausesWrap);
             break;
         default: break;
     }

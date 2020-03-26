@@ -50,7 +50,8 @@ export const ALERT_MESSAGE = {
         PHONE_NUMBER: '휴대전화를 확인해주세요.',
         INTERESTS: '관심사를 확인해주세요.',
         CLAUSES: '약관에 동의하지 않으셨습니다.'
-    }
+    },
+    JOIN_FAIL: '회원가입에 살패했습니다! 다시 시도해주세요.'
 }
 
 export const FORM_RULES = {
@@ -62,4 +63,8 @@ export const FORM_RULES = {
     NOT_DIGIT: 10,
     INTERESTS_MIN: 3,
     ACTIVE_KEY: 'active'
+}
+
+export const STATUS = {
+    SUCCESS: 200
 }
