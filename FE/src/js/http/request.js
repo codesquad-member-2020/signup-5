@@ -13,10 +13,10 @@ export function joinRequest(userData) {
     classAdd(signupBlind, FORM_RULES.ACTIVE_KEY);
     fetchOption.body = JSON.stringify(userData);
     fetch(URL.DEV.JOIN_API, fetchOption)
-        .then(res => checkJoin(res, makeLoginDate(userData)));
+        .then(res => checkJoin(res, makeLoginData(userData)));
 }
 
-function makeLoginDate(userData) {
+function makeLoginData(userData) {
     const loginData = {};
     loginData.userId = userData.userId;
     loginData.password = userData.password;
