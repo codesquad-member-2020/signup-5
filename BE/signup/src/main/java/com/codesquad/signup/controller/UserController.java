@@ -1,5 +1,6 @@
 package com.codesquad.signup.controller;
 
+import com.codesquad.signup.exception.BadRequestException;
 import com.codesquad.signup.exception.UserJoinFailedException;
 import com.codesquad.signup.message.ErrorMessages;
 import com.codesquad.signup.message.SuccessMessages;
@@ -42,6 +43,11 @@ public class UserController {
     log.debug("### show : {}", HttpSessionUtil.getUserFromSession(session));
 
     User sessionedUser = HttpSessionUtil.getUserFromSession(session);
-    return new ResponseEntity<>(new ApiResponse("SUCCESS", sessionedUser), HttpStatus.OK);
+
+    if (!sessionedUser.getId().equals(id)) {
+      throw new BadRequestException(ErrorMessages.BAD_REQUEST);
+    }
+
+    return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, sessionedUser), HttpStatus.OK);
   }
 }
