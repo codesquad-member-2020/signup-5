@@ -400,7 +400,7 @@
         <!--Interest View Controller-->
         <scene sceneID="tVc-H4-z3E">
             <objects>
-                <viewController id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestViewController" id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jmh-mv-5t9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
