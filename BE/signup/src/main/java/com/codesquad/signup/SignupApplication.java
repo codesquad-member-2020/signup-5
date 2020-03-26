@@ -14,5 +14,4 @@ public class SignupApplication {
 		log.debug("### debug SignupApplication Start");
 		log.trace("### trace SignupApplication Start");
 	}
-
 }
