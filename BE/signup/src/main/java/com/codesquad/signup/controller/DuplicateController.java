@@ -27,7 +27,7 @@ public class DuplicateController {
     private UserRepository userRepository;
 
     @GetMapping
-    public Object isDuplicate(String userId, String email, String phoneNumber) {
+    public Object isDuplicate(String userId, String email, String phone) {
 
         if (userId != null)
             return isUserIdDuplicate(userId);
@@ -35,8 +35,8 @@ public class DuplicateController {
         if (email != null)
             return isEmailDuplicate(email);
 
-        if (phoneNumber != null)
-            return isPhoneNumberDuplicate(phoneNumber);
+        if (phone != null)
+            return isPhoneNumberDuplicate(phone);
 
         return new NotFoundPathException(ErrorMessages.NOTFOUND_PATH);
     }
