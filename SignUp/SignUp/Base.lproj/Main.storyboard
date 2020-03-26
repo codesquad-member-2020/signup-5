@@ -357,6 +357,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZZo-kf-ATW"/>
                     </view>
+                    <connections>
+                        <outlet property="termsDescriptionTextView" destination="9Ij-aA-7Xk" id="MAh-dF-jaI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYv-gR-3XQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,7 +368,7 @@
         <!--Interest View Controller-->
         <scene sceneID="tVc-H4-z3E">
             <objects>
-                <viewController id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InterestViewController" id="YGq-EB-mR9" customClass="InterestViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jmh-mv-5t9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
