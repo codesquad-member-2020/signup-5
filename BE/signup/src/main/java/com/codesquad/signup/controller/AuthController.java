@@ -1,7 +1,9 @@
 package com.codesquad.signup.controller;
 
 import com.codesquad.signup.exception.UnauthorizedException;
-import com.codesquad.signup.repository.ApiResponseMessage;
+import com.codesquad.signup.message.ErrorMessages;
+import com.codesquad.signup.message.SuccessMessages;
+import com.codesquad.signup.repository.ApiResponse;
 import com.codesquad.signup.repository.User;
 import com.codesquad.signup.repository.UserRepository;
 import com.codesquad.signup.util.HttpSessionUtil;
@@ -23,29 +25,28 @@ public class AuthController {
     private UserRepository userRepository;
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponseMessage> login(@RequestBody Map<String, String> loginInfo, HttpSession session) {
-        final String SUCCESS_MESSAGE = "로그인 성공";
-        final String ERROR_MESSAGE = "아이디 혹은 비밀번호가 틀렸습니다";
+    public ResponseEntity<ApiResponse> login(@RequestBody Map<String, String> loginInfo, HttpSession session) {
 
         String userId = loginInfo.get(USER_ID);
         String password = loginInfo.get(PASSWORD);
 
         if (!VerifyFormatUtil.isCorrectUserIdFormat(userId)){
-            throw new UnauthorizedException(ERROR_MESSAGE);
+            throw new UnauthorizedException(ErrorMessages.FAIL_LOGIN);
         }
 
         if (!VerifyFormatUtil.isCorrectPasswordFormat(password)) {
-            throw new UnauthorizedException(ERROR_MESSAGE);
+            throw new UnauthorizedException(ErrorMessages.FAIL_LOGIN);
         }
 
-        User user = userRepository.findByUserId(userId).orElseThrow(() -> new UnauthorizedException(ERROR_MESSAGE));
+        User user = userRepository.findByUserId(userId)
+                .orElseThrow(() -> new UnauthorizedException(ErrorMessages.FAIL_LOGIN));
 
         if (!user.isCorrectPassword(password)) {
-            throw new UnauthorizedException(ERROR_MESSAGE);
+            throw new UnauthorizedException(ErrorMessages.FAIL_LOGIN);
         }
 
         session.setAttribute(HttpSessionUtil.USER_SESSION_KEY, user);
 
-        return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", SUCCESS_MESSAGE), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, SuccessMessages.SUCCESS_LOGIN), HttpStatus.OK);
     }
 }

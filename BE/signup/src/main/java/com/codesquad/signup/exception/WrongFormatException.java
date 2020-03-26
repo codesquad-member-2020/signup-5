@@ -1,6 +1,7 @@
 package com.codesquad.signup.exception;
 
-import com.codesquad.signup.repository.ApiResponseMessage;
+import com.codesquad.signup.message.ErrorMessages;
+import com.codesquad.signup.repository.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -11,7 +12,7 @@ public class WrongFormatException extends RuntimeException {
         this.errorMessage = errorMessage;
     }
 
-    public ResponseEntity<ApiResponseMessage> returnErrorMessage() {
-        return new ResponseEntity<>(new ApiResponseMessage("ERROR", errorMessage), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<ApiResponse> returnErrorMessage() {
+        return new ResponseEntity<>(new ApiResponse(ErrorMessages.ERROR, errorMessage), HttpStatus.BAD_REQUEST);
     }
 }
