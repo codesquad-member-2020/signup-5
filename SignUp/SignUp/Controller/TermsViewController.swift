@@ -44,4 +44,7 @@ class TermsViewController: UIViewController {
         
         present(actionSheet, animated: false)
     }
+
+
+  
 }
