@@ -35,6 +35,11 @@ export const STATE_MESSAGE = {
         EMAIL: '이메일 주소를 다시 확인해주세요.',
         PHONE_NUMBER: '형식에 맞지 않는 번호입니다.',
         INTERESTS: '3개 이상의 관심사를 입력하세요.'
+    },
+    DUPLICATE: {
+        ID: '이미 사용 중인 아이디입니다.',
+        EMAIL: '이미 사용 중인 이메일입니다.',
+        PHONE_NUMBER: '이미 사용 중인 휴대전화입니다.'
     }
 }
 
@@ -66,5 +71,6 @@ export const FORM_RULES = {
 }
 
 export const STATUS = {
-    SUCCESS: 200
+    SUCCESS: 200,
+    CONFLICT: 409
 }

@@ -1,10 +1,12 @@
 import { VALID_CHECK_REGEX, STATE_MESSAGE } from '../constants/constant.js';
 import { signupData } from '../data/signupData.js';
+import { checkIdDuplicateRequest } from '../http/request.js';
 
-export function checkId(id) {
+export async function checkId(id) {
     signupData.userId = null;
     const checkIdCondition = id.search(VALID_CHECK_REGEX.ID);
     if (checkIdCondition) return STATE_MESSAGE.INVALID.ID;
+    if (!await checkIdDuplicateRequest(id).then(res => res)) return STATE_MESSAGE.DUPLICATE.ID;
     signupData.userId = id;
     return STATE_MESSAGE.VALID.ID;
 }
