@@ -56,7 +56,8 @@ export const ALERT_MESSAGE = {
         INTERESTS: '관심사를 확인해주세요.',
         CLAUSES: '약관에 동의하지 않으셨습니다.'
     },
-    JOIN_FAIL: '회원가입에 살패했습니다! 다시 시도해주세요.'
+    JOIN_FAIL: '회원가입에 살패했습니다! 다시 시도해주세요.',
+    LOGIN_FAIL: '아이디 또는 비밀번호를 다시 확인해주세요.'
 }
 
 export const FORM_RULES = {

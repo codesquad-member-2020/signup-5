@@ -4,6 +4,7 @@ export const URL = {
         EMAIL_CHECK_API: 'https://signup-5-dev.herokuapp.com/duplicate?email=',
         PHONE_NUMBER_CHECK_API: 'https://signup-5-dev.herokuapp.com/duplicate?phone=',
         JOIN_API: 'https://signup-5-dev.herokuapp.com/join',
+        LOGIN_API: 'https://signup-5-dev.herokuapp.com/login'
     },
     PROD: {}
 }

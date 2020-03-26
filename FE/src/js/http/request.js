@@ -2,25 +2,41 @@ import { URL } from '../constants/url.js';
 import { FORM_RULES, ALERT_MESSAGE, STATUS } from '../constants/constant.js';
 import { getElement, classAdd } from '../util/commonUtil.js';
 
-export function joinRequest(data) {
+const fetchOption = {
+    method: 'POST',
+    mode: 'cors',
+    headers: { 'Content-Type': 'application/json' },
+};
+
+export function joinRequest(userData) {
     const signupBlind = getElement('#signup-blind');
     classAdd(signupBlind, FORM_RULES.ACTIVE_KEY);
-
-    fetch(URL.DEV.JOIN_API, {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-        .then(checkJoin);
+    fetchOption.body = JSON.stringify(userData);
+    fetch(URL.DEV.JOIN_API, fetchOption)
+        .then(res => checkJoin(res, makeLoginDate(userData)));
 }
 
-function checkJoin(res) {
+function makeLoginDate(userData) {
+    const loginData = {};
+    loginData.userId = userData.userId;
+    loginData.password = userData.password;
+    return loginData;
+}
+
+function checkJoin(res, loginData) {
+    if (res.status === STATUS.SUCCESS) loginRequest(loginData);
+    else alert(ALERT_MESSAGE.JOIN_FAIL);
+}
+
+export function loginRequest(loginData) {
+    fetchOption.body = JSON.stringify(loginData);
+    fetch(URL.DEV.LOGIN_API, fetchOption)
+        .then(checkLogin);
+}
+
+function checkLogin(res) {
     if (res.status === STATUS.SUCCESS) window.location.href = './main.html'
-    else {
-        alert(ALERT_MESSAGE.JOIN_FAIL);
-        window.location.reload();
-    }
+    else alert(ALERT_MESSAGE.LOGIN_FAIL);
 }
 
 export function checkIdDuplicateRequest(id) {
