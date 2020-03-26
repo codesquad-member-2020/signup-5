@@ -46,4 +46,11 @@ public class CustomAdvice {
     public ApiResponse handleError(UserJoinFailedException userJoinFailed) {
         return userJoinFailed.returnErrorMessage();
     }
+
+    @ExceptionHandler(ForbiddenException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    @ResponseBody
+    public ApiResponse handleError(ForbiddenException forbidden) {
+        return forbidden.returnErrorMessage();
+    }
 }
