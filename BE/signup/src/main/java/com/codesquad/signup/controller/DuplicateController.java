@@ -1,9 +1,11 @@
 package com.codesquad.signup.controller;
 
-import com.codesquad.signup.exception.NotFoundPath;
+import com.codesquad.signup.exception.NotFoundPathException;
 import com.codesquad.signup.exception.NotUniqueException;
 import com.codesquad.signup.exception.WrongFormatException;
-import com.codesquad.signup.repository.ApiResponseMessage;
+import com.codesquad.signup.message.ErrorMessages;
+import com.codesquad.signup.message.SuccessMessages;
+import com.codesquad.signup.repository.ApiResponse;
 import com.codesquad.signup.repository.User;
 import com.codesquad.signup.repository.UserRepository;
 import com.codesquad.signup.util.VerifyFormatUtil;
@@ -23,10 +25,9 @@ public class DuplicateController {
 
     @Autowired
     private UserRepository userRepository;
-    private final String WRONG_FORMAT = "잘못된 형식입니다";
 
     @GetMapping
-    public Object isDuplicate(String userId, String email, String phoneNumber) {
+    public Object isDuplicate(String userId, String email, String phone) {
 
         if (userId != null)
             return isUserIdDuplicate(userId);
@@ -34,53 +35,53 @@ public class DuplicateController {
         if (email != null)
             return isEmailDuplicate(email);
 
-        if (phoneNumber != null)
-            return isPhoneNumberDuplicate(phoneNumber);
+        if (phone != null)
+            return isPhoneNumberDuplicate(phone);
 
-        return new NotFoundPath("해당 경로를 찾을 수 없습니다");
+        return new NotFoundPathException(ErrorMessages.NOTFOUND_PATH);
     }
 
-    private ResponseEntity<ApiResponseMessage> isUserIdDuplicate(String userId) {
+    private ResponseEntity<ApiResponse> isUserIdDuplicate(String userId) {
 
         if (!VerifyFormatUtil.isCorrectUserIdFormat(userId)) {
-            throw new WrongFormatException(WRONG_FORMAT);
+            throw new WrongFormatException(ErrorMessages.WRONG_FORMAT);
         }
 
         Optional<User> user = userRepository.findByUserId(userId);
 
         if (user.isPresent())
-            throw new NotUniqueException("이미 사용중인 아이디입니다");
+            throw new NotUniqueException(ErrorMessages.DUPLICATED_USER_ID);
 
-        return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", "사용할 수 있는 아이디입니다"), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, SuccessMessages.VALID_USER_ID), HttpStatus.OK);
     }
 
 
-    private ResponseEntity<ApiResponseMessage> isEmailDuplicate(@RequestParam("email") String email) {
+    private ResponseEntity<ApiResponse> isEmailDuplicate(@RequestParam("email") String email) {
 
         if (!VerifyFormatUtil.isCorrectEmailFormat(email)) {
-            throw new WrongFormatException(WRONG_FORMAT);
+            throw new WrongFormatException(ErrorMessages.WRONG_FORMAT);
         }
 
         Optional<User> user = userRepository.findByEmail(email);
 
         if (user.isPresent())
-            throw new NotUniqueException("이미 사용중인 이메일입니다");
+            throw new NotUniqueException(ErrorMessages.DUPLICATED_EMAIL);
 
-        return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", "사용할 수 있는 이메일입니다"), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, SuccessMessages.VALID_EMAIL), HttpStatus.OK);
     }
 
-    private ResponseEntity<ApiResponseMessage> isPhoneNumberDuplicate(@RequestParam(value = "phone") String phone) {
+    private ResponseEntity<ApiResponse> isPhoneNumberDuplicate(@RequestParam(value = "phone") String phone) {
 
         if (!VerifyFormatUtil.isCorrectPhoneNumberFormat(phone)) {
-            throw new WrongFormatException(WRONG_FORMAT);
+            throw new WrongFormatException(ErrorMessages.WRONG_FORMAT);
         }
 
         Optional<User> user = userRepository.findByPhoneNumber(phone);
 
         if (user.isPresent())
-            throw new NotUniqueException("이미 사용중인 번호입니다");
+            throw new NotUniqueException(ErrorMessages.DUPLICATED_PHONE);
 
-        return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", "사용할 수 있는 번호 입니다"), HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, SuccessMessages.VALID_PHONE), HttpStatus.OK);
     }
 
 

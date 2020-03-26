@@ -54,18 +54,22 @@ public class User {
       log.debug("### ERROR : isCorrectUserIdFormat");
       throw new WrongFormatException(WRONG_FORMAT + USER_ID_FORMAT);
     }
+
     if (!isCorrectPasswordFormat(password)) {
       log.debug("### ERROR : isCorrectPasswordFormat");
       throw new WrongFormatException(WRONG_FORMAT + PASSWORD_FORMAT);
     }
+
     if (!isCorrectEmailFormat(email)) {
       log.debug("### ERROR : isCorrectEmailFormat");
       throw new WrongFormatException(WRONG_FORMAT + EMAIL_FORMAT);
     }
+
     if (!isCorrectPhoneNumberFormat(phoneNumber)) {
       log.debug("### ERROR : isCorrectPhoneNumberFormat");
       throw new WrongFormatException(WRONG_FORMAT + PHONE_NUMBER_FORMAT);
     }
+
     if (!isCorrectInterestFormat(interest)) {
       log.debug("### ERROR : isCorrectInterestFormat");
       throw new WrongFormatException(WRONG_FORMAT + INTEREST_FORMAT);

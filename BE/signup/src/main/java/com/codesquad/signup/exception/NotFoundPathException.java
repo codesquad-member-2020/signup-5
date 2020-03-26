@@ -5,15 +5,14 @@ import com.codesquad.signup.repository.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-public class UnauthorizedException extends RuntimeException {
-
+public class NotFoundPathException extends RuntimeException {
     private String errorMessage;
 
-    public UnauthorizedException(String errorMessage) {
+    public NotFoundPathException(String errorMessage) {
         this.errorMessage = errorMessage;
     }
 
     public ResponseEntity<ApiResponse> returnErrorMessage() {
-        return new ResponseEntity<>(new ApiResponse(ErrorMessages.ERROR, errorMessage), HttpStatus.UNAUTHORIZED);
+        return new ResponseEntity<>(new ApiResponse(ErrorMessages.ERROR, errorMessage), HttpStatus.NOT_FOUND);
     }
 }
