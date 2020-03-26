@@ -45,7 +45,7 @@ public class UserController {
     User sessionedUser = HttpSessionUtil.getUserFromSession(session);
 
     if (!sessionedUser.getId().equals(id)) {
-      throw new BadRequestException(ErrorMessages.BAD_REQUEST);
+      throw new BadRequestException(ErrorMessages.FORBIDDEN);
     }
 
     return new ResponseEntity<>(new ApiResponse(SuccessMessages.SUCCESS, sessionedUser), HttpStatus.OK);
