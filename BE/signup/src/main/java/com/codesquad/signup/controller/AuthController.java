@@ -4,6 +4,7 @@ import com.codesquad.signup.exception.UnauthorizedException;
 import com.codesquad.signup.repository.ApiResponseMessage;
 import com.codesquad.signup.repository.User;
 import com.codesquad.signup.repository.UserRepository;
+import com.codesquad.signup.util.HttpSessionUtil;
 import com.codesquad.signup.util.VerifyFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +43,8 @@ public class AuthController {
         if (!user.isCorrectPassword(password)) {
             throw new UnauthorizedException(ERROR_MESSAGE);
         }
+
+        session.setAttribute(HttpSessionUtil.USER_SESSION_KEY, user);
 
         return new ResponseEntity<>(new ApiResponseMessage("SUCCESS", SUCCESS_MESSAGE), HttpStatus.OK);
     }
