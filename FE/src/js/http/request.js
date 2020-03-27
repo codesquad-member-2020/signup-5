@@ -7,12 +7,13 @@ const fetchOption = {
     mode: 'cors',
     headers: { 'Content-Type': 'application/json' },
 };
+const HOST = 'https://' + window.location.host;
 
 export function joinRequest(userData) {
     const signupBlind = getElement('#signup-blind');
     classAdd(signupBlind, FORM_RULES.ACTIVE_KEY);
     fetchOption.body = JSON.stringify(userData);
-    fetch(URL.DEV.JOIN_API, fetchOption)
+    fetch(HOST + URL.DEV.JOIN_API, fetchOption)
         .then(res => checkJoin(res, makeLoginData(userData)));
 }
 
@@ -30,27 +31,27 @@ function checkJoin(res, loginData) {
 
 export function loginRequest(loginData) {
     fetchOption.body = JSON.stringify(loginData);
-    fetch(URL.DEV.LOGIN_API, fetchOption)
+    fetch(HOST + URL.DEV.LOGIN_API, fetchOption)
         .then(checkLogin);
 }
 
 function checkLogin(res) {
-    if (res.status === STATUS.SUCCESS) window.location.href = './main.html'
+    if (res.status === STATUS.SUCCESS) window.location.href = './main';
     else alert(ALERT_MESSAGE.LOGIN_FAIL);
 }
 
 export function checkIdDuplicateRequest(id) {
-    return fetch(URL.DEV.ID_CHECK_API + id)
+    return fetch(HOST + URL.DEV.ID_CHECK_API + id)
         .then(checkDuplicate);
 }
 
 export function checkEmailDuplicateRequest(email) {
-    return fetch(URL.DEV.EMAIL_CHECK_API + email)
+    return fetch(HOST + URL.DEV.EMAIL_CHECK_API + email)
         .then(checkDuplicate);
 }
 
 export function checkPhoneNumberDuplicateRequest(number) {
-    return fetch(URL.DEV.PHONE_NUMBER_CHECK_API + number)
+    return fetch(HOST + URL.DEV.PHONE_NUMBER_CHECK_API + number)
         .then(checkDuplicate);
 }
 

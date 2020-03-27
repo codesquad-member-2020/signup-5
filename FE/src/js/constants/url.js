@@ -1,10 +1,10 @@
 export const URL = {
     DEV: {
-        ID_CHECK_API: 'https://signup-5-dev.herokuapp.com/duplicate?userId=',
-        EMAIL_CHECK_API: 'https://signup-5-dev.herokuapp.com/duplicate?email=',
-        PHONE_NUMBER_CHECK_API: 'https://signup-5-dev.herokuapp.com/duplicate?phone=',
-        JOIN_API: 'https://signup-5-dev.herokuapp.com/join',
-        LOGIN_API: 'https://signup-5-dev.herokuapp.com/login'
+        ID_CHECK_API: '/duplicate?userId=',
+        EMAIL_CHECK_API: '/duplicate?email=',
+        PHONE_NUMBER_CHECK_API: '/duplicate?phone=',
+        JOIN_API: '/join',
+        LOGIN_API: '/login'
     },
     PROD: {}
 }

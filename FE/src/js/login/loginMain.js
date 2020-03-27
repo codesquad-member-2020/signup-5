@@ -22,5 +22,5 @@ function makeLoginData() {
 }
 
 function signupBtnClickHandle() {
-    window.location.href = './signup.html';
+    window.location.href = './joinForm';
 }
