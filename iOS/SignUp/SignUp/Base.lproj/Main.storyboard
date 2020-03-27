@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ivd-b0-KdX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGq-EB-mR9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -393,7 +393,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XYv-gR-3XQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1747.826086956522" y="132.58928571428572"/>
+            <point key="canvasLocation" x="1697" y="133"/>
         </scene>
         <!--Interest View Controller-->
         <scene sceneID="tVc-H4-z3E">
@@ -448,42 +448,50 @@
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VeI-6n-teb">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VeI-6n-teb" customClass="InterestCollectionView" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="60" y="261" width="294" height="117"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbB-TY-pYx">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbB-TY-pYx">
                                     <size key="itemSize" width="83" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="IAL-ff-dvY">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="InterestCollectionViewCell" reuseIdentifier="InterestCollectionViewCell" id="IAL-ff-dvY" customClass="InterestCollectionViewCell" customModule="SignUp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="83" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Sa0-8j-XFb">
                                             <rect key="frame" x="0.0" y="0.0" width="83" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-9P-HAu">
-                                                    <rect key="frame" x="8" y="8" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-9P-HAu">
+                                                    <rect key="frame" x="8" y="9.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-5H-t7T">
-                                                    <rect key="frame" x="59" y="7" width="20" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OkQ-5H-t7T">
+                                                    <rect key="frame" x="58" y="9" width="20" height="22"/>
                                                     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" image="xmark.circle.fill" catalog="system">
                                                         <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="OkQ-5H-t7T" secondAttribute="trailing" constant="5" id="H2J-bu-JQo"/>
+                                                <constraint firstItem="OkQ-5H-t7T" firstAttribute="leading" secondItem="yuc-9P-HAu" secondAttribute="trailing" priority="250" constant="8" id="HUD-7K-1ym"/>
+                                                <constraint firstItem="yuc-9P-HAu" firstAttribute="leading" secondItem="Sa0-8j-XFb" secondAttribute="leading" constant="8" id="KB1-ut-UkP"/>
+                                                <constraint firstItem="OkQ-5H-t7T" firstAttribute="centerY" secondItem="Sa0-8j-XFb" secondAttribute="centerY" id="PKK-Y2-ii4"/>
+                                                <constraint firstItem="yuc-9P-HAu" firstAttribute="centerY" secondItem="Sa0-8j-XFb" secondAttribute="centerY" id="kYk-lT-Fqd"/>
+                                            </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.81015455722808838" green="0.9080960750579834" blue="0.43370181322097778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <size key="customSize" width="83" height="40"/>
+                                        <connections>
+                                            <outlet property="cancelButton" destination="OkQ-5H-t7T" id="Tbc-y4-Zze"/>
+                                            <outlet property="interestLabel" destination="yuc-9P-HAu" id="cpg-sy-iwR"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -509,6 +517,7 @@
                         <viewLayoutGuide key="safeArea" id="98C-IW-nUr"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="VeI-6n-teb" id="Csq-Ca-syd"/>
                         <outlet property="interestTextField" destination="lAG-lR-ha8" id="wQe-6L-Urc"/>
                     </connections>
                 </viewController>

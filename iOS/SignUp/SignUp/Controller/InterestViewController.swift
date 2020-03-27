@@ -11,7 +11,20 @@ import UIKit
 class InterestViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var interestTextField: UITextField!
-    private var interest: [String] = []
+    @IBOutlet var collectionView: InterestCollectionView!
+    
+//    @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout! {
+//        didSet {
+//            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+//            print("qqqqqqq")
+//        }
+//    }
+    private var interest: [String] = [] {
+        didSet {
+            guard let lastInterest = interest.last else { return }
+            NotificationCenter.default.post(name: .addInterest , object: nil, userInfo: ["interest": lastInterest ])
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +35,8 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         let text = textField.text!
         interest.append(text)
         textField.text! = ""
-        print(interest)
         return true
     }
+    
     
 }
