@@ -35,6 +35,11 @@ export const STATE_MESSAGE = {
         EMAIL: '이메일 주소를 다시 확인해주세요.',
         PHONE_NUMBER: '형식에 맞지 않는 번호입니다.',
         INTERESTS: '3개 이상의 관심사를 입력하세요.'
+    },
+    DUPLICATE: {
+        ID: '이미 사용 중인 아이디입니다.',
+        EMAIL: '이미 사용 중인 이메일입니다.',
+        PHONE_NUMBER: '이미 사용 중인 휴대전화입니다.'
     }
 }
 
@@ -50,7 +55,9 @@ export const ALERT_MESSAGE = {
         PHONE_NUMBER: '휴대전화를 확인해주세요.',
         INTERESTS: '관심사를 확인해주세요.',
         CLAUSES: '약관에 동의하지 않으셨습니다.'
-    }
+    },
+    JOIN_FAIL: '회원가입에 살패했습니다! 다시 시도해주세요.',
+    LOGIN_FAIL: '아이디 또는 비밀번호를 다시 확인해주세요.'
 }
 
 export const FORM_RULES = {
@@ -62,4 +69,9 @@ export const FORM_RULES = {
     NOT_DIGIT: 10,
     INTERESTS_MIN: 3,
     ACTIVE_KEY: 'active'
+}
+
+export const STATUS = {
+    SUCCESS: 200,
+    CONFLICT: 409
 }

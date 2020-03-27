@@ -1,6 +1,7 @@
 import { VALID_CHECK_REGEX, STATE_MESSAGE, FORM_RULES } from '../constants/constant.js';
 import { getElement } from '../util/commonUtil.js';
 import { signupData } from '../data/signupData.js';
+import { checkEmailDuplicateRequest, checkPhoneNumberDuplicateRequest } from '../http/request.js';
 
 export function checkYear(year) {
     signupData.year = null;
@@ -53,18 +54,20 @@ function calcAge(year, month, day) {
     return age;
 }
 
-export function checkEmail(email) {
+export async function checkEmail(email) {
     signupData.email = null;
     const checkEmail = email.search(VALID_CHECK_REGEX.EMAIL);
     if (checkEmail) return STATE_MESSAGE.INVALID.EMAIL;
+    if (!await checkEmailDuplicateRequest(email).then(res => res)) return STATE_MESSAGE.DUPLICATE.EMAIL;
     signupData.email = email;
     return;
 }
 
-export function checkPhoneNumber(number) {
+export async function checkPhoneNumber(number) {
     signupData.phoneNumber = null;
     const checkNumber = number.search(VALID_CHECK_REGEX.PHONE_NUMBER);
     if (checkNumber) return STATE_MESSAGE.INVALID.PHONE_NUMBER;
+    if (!await checkPhoneNumberDuplicateRequest(number).then(res => res)) return STATE_MESSAGE.DUPLICATE.PHONE_NUMBER;
     signupData.phoneNumber = number;
     return;
 }

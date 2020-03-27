@@ -1,0 +1,7 @@
+.user-info {
+    display: none;
+}
+
+.user-info.active {
+    display: block;
+}

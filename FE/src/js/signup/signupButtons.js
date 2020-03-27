@@ -1,9 +1,9 @@
 import { ALERT_MESSAGE } from '../constants/constant.js';
-import { URL } from '../constants/url.js';
 import { getElement, getElements } from '../util/commonUtil.js';
 import { resetSignupData, signupData, makeSignupJSON } from '../data/signupData.js';
 import { resetTag } from './userInterests.js';
 import { clausesAgreeBtnToggle } from './clauses.js';
+import { joinRequest } from '../http/request.js';
 
 export function signupResetBtnHandle() {
     if (!confirm(ALERT_MESSAGE.RESET)) return;
@@ -18,12 +18,11 @@ export function signupResetBtnHandle() {
 
 export function signupJoinBtnHandle() {
     for (let [key, value] of Object.entries(signupData)) {
-        if (!value) {
-            notifyJoinError(key);
-            return;
-        }
+        if (value) continue;
+        notifyJoinError(key);
+        return;
     }
-    joinRequest();
+    joinRequest(makeSignupJSON());
 }
 
 function notifyJoinError(key) {
@@ -52,17 +51,4 @@ function notifyJoinError(key) {
             break;
         case "clausesAgree": alert(ALERT_MESSAGE.JOIN_INVALID.CLAUSES);
     }
-}
-
-function joinRequest() {
-    const data = makeSignupJSON();
-    const tempURL = URL.DEV.CORS_API + URL.PROD.JOIN_API;
-    fetch(tempURL, {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-    })
-        .then(res => res.json())
-        .then(json => console.log(json));
 }

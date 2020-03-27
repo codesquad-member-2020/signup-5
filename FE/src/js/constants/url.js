@@ -1,10 +1,10 @@
 export const URL = {
     DEV: {
-        CORS_API: 'https://cors-anywhere.herokuapp.com/',
-        BASE: 'http://990caa52-e2f0-42b5-8788-524fcc6715a5.mock.pstmn.io/',
-        ID_CHECK_API: 'duplicate?userId=',
+        ID_CHECK_API: '/duplicate?userId=',
+        EMAIL_CHECK_API: '/duplicate?email=',
+        PHONE_NUMBER_CHECK_API: '/duplicate?phone=',
+        JOIN_API: '/join',
+        LOGIN_API: '/login'
     },
-    PROD: {
-        JOIN_API: 'https://signup-5-test.herokuapp.com/join',
-    }
+    PROD: {}
 }
