@@ -13,12 +13,7 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var interestTextField: UITextField!
     @IBOutlet var collectionView: InterestCollectionView!
     
-//    @IBOutlet var collectionViewFlowLayout: UICollectionViewFlowLayout! {
-//        didSet {
-//            collectionViewFlowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-//            print("qqqqqqq")
-//        }
-//    }
+
     private var interest: [String] = [] {
         didSet {
             guard let lastInterest = interest.last else { return }
@@ -38,5 +33,15 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func movePreviousScene(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
+    @IBAction func moveNextScene(_ sender: Any) {
+   if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+              
+              nextScene.modalPresentationStyle = .fullScreen
+              self.present(nextScene, animated: true)
+          }
+    }
 }

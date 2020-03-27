@@ -123,4 +123,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func movePreviousScene(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }

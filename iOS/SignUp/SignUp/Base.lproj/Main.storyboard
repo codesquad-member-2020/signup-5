@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGq-EB-mR9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -267,6 +267,9 @@
                                 <state key="normal" title="이전">
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="movePreviousScene:" destination="ivd-b0-KdX" eventType="touchUpInside" id="l6P-Oo-R74"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrS-yp-piS">
                                 <rect key="frame" x="151.5" y="83" width="111" height="39"/>
@@ -435,6 +438,10 @@
                                 <state key="normal" title="이전">
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="movePreviousScene:" destination="YGq-EB-mR9" eventType="touchUpInside" id="Pke-t3-Awi"/>
+                                    <action selector="movePreviousScene:" destination="hj5-pv-AQb" eventType="touchUpInside" id="dQ3-Hk-rQy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8td-cN-rg4">
                                 <rect key="frame" x="259" y="428" width="95" height="40"/>
@@ -447,6 +454,10 @@
                                 <state key="normal" title="다음">
                                     <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="moveNextScene:" destination="hj5-pv-AQb" eventType="touchUpInside" id="WgL-vv-NdL"/>
+                                    <action selector="moveNextScene:" destination="YGq-EB-mR9" eventType="touchUpInside" id="jUO-KI-hyQ"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VeI-6n-teb" customClass="InterestCollectionView" customModule="SignUp" customModuleProvider="target">
                                 <rect key="frame" x="60" y="261" width="294" height="117"/>
@@ -522,13 +533,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0I8-A8-F6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="hj5-pv-AQb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2505.7971014492755" y="133.92857142857142"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="PS0-Md-X04">
             <objects>
-                <viewController id="8FF-6h-p2J" customClass="LoginViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="8FF-6h-p2J" customClass="LoginViewController" customModule="SignUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rAP-BC-RCN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
