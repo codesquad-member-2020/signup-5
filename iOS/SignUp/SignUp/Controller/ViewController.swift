@@ -55,6 +55,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func moveBeforeScene(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
+    
     @objc func inputIdAssistComment(_ notification: Notification) {
         guard let format = notification.userInfo?["format"] as? (message: String, color: UIColor) else { return }
         idAssistLabel.text = format.message
