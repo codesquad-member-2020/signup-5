@@ -16,8 +16,8 @@ class RequestManager {
         case delete = "DELETE"
     }
     
-    func request(url: String, methodType: HTTPMethod, body: Data? = nil) {
-        guard let url = URL(string: url) else { return }
+    func request(url: String, methodType: HTTPMethod, body: Data? = nil) -> Bool {
+        guard let url = URL(string: url) else { return false }
         
         var request = URLRequest(url: url)
         request.httpMethod = methodType.rawValue
@@ -31,12 +31,15 @@ class RequestManager {
             do {
                 let anyData = try JSONSerialization.jsonObject(with: data!, options: [])
                guard let nsDictionary = anyData as? NSDictionary else { return }
-               
+                guard let statusValue = nsDictionary["status"] as? String else { return }
+               let status = statusValue.utf8
+                guard String(status) == "ERROR" else { return }
                 } catch {
                 
             }
         }
         
         task.resume()
+        return true
     }
 }

@@ -21,6 +21,7 @@
 		30769F0F242664D600D03360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30769F0D242664D600D03360 /* LaunchScreen.storyboard */; };
 		30EBC414242F1BA900078AF0 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBC413242F1BA900078AF0 /* RequestManager.swift */; };
 		30EBC417242F1F4900078AF0 /* UserInfomation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBC416242F1F4900078AF0 /* UserInfomation.swift */; };
+		30EBC419242F71D200078AF0 /* EncodeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30EBC418242F71D200078AF0 /* EncodeManager.swift */; };
 		30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD3312427279D00FE4D44 /* PersonalInfoViewController.swift */; };
 		30FCD334242727C900FE4D44 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD333242727C900FE4D44 /* TermsViewController.swift */; };
 		30FCD336242727E600FE4D44 /* InterestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30FCD335242727E600FE4D44 /* InterestViewController.swift */; };
@@ -55,6 +56,7 @@
 		30769F10242664D600D03360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30EBC413242F1BA900078AF0 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		30EBC416242F1F4900078AF0 /* UserInfomation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfomation.swift; sourceTree = "<group>"; };
+		30EBC418242F71D200078AF0 /* EncodeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodeManager.swift; sourceTree = "<group>"; };
 		30FCD3312427279D00FE4D44 /* PersonalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfoViewController.swift; sourceTree = "<group>"; };
 		30FCD333242727C900FE4D44 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		30FCD335242727E600FE4D44 /* InterestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				30EBC413242F1BA900078AF0 /* RequestManager.swift */,
+				30EBC418242F71D200078AF0 /* EncodeManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				30EBC417242F1F4900078AF0 /* UserInfomation.swift in Sources */,
 				305C2F9A242D9F7D00366378 /* InterestCollectionView.swift in Sources */,
 				30FCD3322427279D00FE4D44 /* PersonalInfoViewController.swift in Sources */,
+				30EBC419242F71D200078AF0 /* EncodeManager.swift in Sources */,
 				30769F07242664D100D03360 /* ViewController.swift in Sources */,
 				3036A8C7242A4BBA00436DFF /* NameTextField.swift in Sources */,
 				30769F03242664D100D03360 /* AppDelegate.swift in Sources */,

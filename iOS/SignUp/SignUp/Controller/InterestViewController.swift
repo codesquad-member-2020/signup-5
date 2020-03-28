@@ -24,6 +24,7 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     var email: String?
     
     let requestManager = RequestManager()
+    let encodeManager = EncodeManager()
     
     private var interest: [String] = [] {
         didSet {
@@ -38,7 +39,6 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         
         setUI()
         joinButton.isEnabled = false
-        
     }
     
     func setUI() {
@@ -64,25 +64,46 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func moveNextScene(_ sender: UIButton) {
-        let url = "https://signup-5-test-deploy.herokuapp.com/join"
-        
-        let interestString = interest.reduce("") { "\($0)"+"\($1)" }
-        
+        let interestString = interest.reduce("") { "\($0),"+"\($1)" }
         guard let id = id, let password = password, let name = name, let birthday = birthDate, let sex = gender, let email = email, let phoneNumber = phoneNumber else { return }
         
-        let userInfo = UserInfo(userId: id, password: password, name: name, birthday: birthday, sex: sex, email: email, phoneNumber: phoneNumber, interest: interestString)
-        let encoder = JSONEncoder()
-            let data = try? encoder.encode(userInfo)
-            requestManager.request(url: url, methodType: .post, body: data)
+        let encodedData = encodeManager.joinRequestEncoding(id: id, password: password, name: name, birthday: birthday, sex: sex, email: email, phoneNumber: phoneNumber, interest: interestString)
+        let requestResult = requestManager.request(url: encodedData.url, methodType: .post, body: encodedData.data)
+        
+        if requestResult {
+            joinSuccessAlert()
+        }else {
+            joinFailAlert()
+        }
+        
+    }
+    
+    func joinSuccessAlert() {
+        let alert = UIAlertController(title: "가입 성공", message: "회원가입이 완료되었습니다", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
             if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
                 
                 nextScene.modalPresentationStyle = .fullScreen
                 self.present(nextScene, animated: true)
             }
+        }
         
+        alert.addAction(ok)
+        self.present(alert, animated: true)
+    }
+    
+    func joinFailAlert() {
+        let alert = UIAlertController(title: "오류 안내", message: "회원가입에 실패했습니다", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+            if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
+                
+                nextScene.modalPresentationStyle = .fullScreen
+                self.present(nextScene, animated: true)
+            }
+        }
         
-        
-        
+        alert.addAction(ok)
+        self.present(alert, animated: true)
     }
     
     
