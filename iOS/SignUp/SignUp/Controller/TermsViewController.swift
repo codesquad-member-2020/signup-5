@@ -11,6 +11,15 @@ import UIKit
 class TermsViewController: UIViewController {
     
     @IBOutlet var termsDescriptionTextView: UITextView!
+    
+    var id: String?
+    var password: String?
+    var name: String?
+    var birthDate: String?
+    var gender: String?
+    var phoneNumber: String?
+    var email: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setTermsDescription()
@@ -29,10 +38,17 @@ class TermsViewController: UIViewController {
     func setActionSheet() {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let agree = UIAlertAction(title: "동의", style: .default) { (agree) in
-            if let interestViewController = self.storyboard?.instantiateViewController(withIdentifier: "InterestViewController") as? InterestViewController {
+            if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "InterestViewController") as? InterestViewController {
                 
-                interestViewController.modalPresentationStyle = .fullScreen
-                self.present(interestViewController, animated: false)
+                nextScene.id = self.id
+                nextScene.password = self.password
+                nextScene.name = self.name
+                nextScene.birthDate = self.birthDate
+                nextScene.phoneNumber = self.phoneNumber
+                nextScene.email = self.email
+                
+                nextScene.modalPresentationStyle = .fullScreen
+                self.present(nextScene, animated: false)
             }
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel) { (cancel) in

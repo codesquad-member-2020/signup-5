@@ -13,6 +13,13 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var interestTextField: UITextField!
     @IBOutlet var collectionView: InterestCollectionView!
     
+    var id: String?
+    var password: String?
+    var name: String?
+    var birthDate: String?
+    var gender: String?
+    var phoneNumber: String?
+    var email: String?
 
     private var interest: [String] = [] {
         didSet {
