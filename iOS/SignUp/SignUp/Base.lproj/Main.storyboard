@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGq-EB-mR9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -431,7 +431,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qra-fy-1an">
-                                <rect key="frame" x="60" y="428" width="95" height="40"/>
+                                <rect key="frame" x="60" y="452" width="95" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="19k-7Z-pWb"/>
@@ -447,7 +447,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8td-cN-rg4">
-                                <rect key="frame" x="259" y="428" width="95" height="40"/>
+                                <rect key="frame" x="259" y="452" width="95" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="95" id="7hc-ol-aXJ"/>
@@ -463,8 +463,11 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VeI-6n-teb" customClass="InterestCollectionView" customModule="SignUp" customModuleProvider="target">
-                                <rect key="frame" x="60" y="261" width="294" height="117"/>
+                                <rect key="frame" x="60" y="282" width="294" height="120"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="120" id="s4B-C0-07N"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YbB-TY-pYx">
                                     <size key="itemSize" width="83" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -509,6 +512,15 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0y-Wn-oEe">
+                                <rect key="frame" x="60" y="232" width="294" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="VW9-h1-fgz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.95866558840000005" green="0.95615552989999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -517,14 +529,16 @@
                             <constraint firstItem="Rkk-xK-zoI" firstAttribute="top" secondItem="98C-IW-nUr" secondAttribute="top" constant="39" id="4pr-kk-B9B"/>
                             <constraint firstItem="VeI-6n-teb" firstAttribute="leading" secondItem="lAG-lR-ha8" secondAttribute="leading" id="9ep-fY-n7W"/>
                             <constraint firstItem="lAG-lR-ha8" firstAttribute="top" secondItem="YoZ-HQ-0Q5" secondAttribute="bottom" constant="8" id="BEp-jY-nso"/>
-                            <constraint firstItem="qra-fy-1an" firstAttribute="centerY" secondItem="Jmh-mv-5t9" secondAttribute="centerY" id="JC8-5i-D2P"/>
+                            <constraint firstItem="98C-IW-nUr" firstAttribute="trailing" secondItem="D0y-Wn-oEe" secondAttribute="trailing" constant="60" id="PRu-0l-tYM"/>
                             <constraint firstItem="98C-IW-nUr" firstAttribute="trailing" secondItem="VeI-6n-teb" secondAttribute="trailing" constant="60" id="RDF-Ab-Hwu"/>
                             <constraint firstItem="qra-fy-1an" firstAttribute="leading" secondItem="YoZ-HQ-0Q5" secondAttribute="leading" id="UOU-eG-w27"/>
                             <constraint firstItem="Rkk-xK-zoI" firstAttribute="centerX" secondItem="Jmh-mv-5t9" secondAttribute="centerX" id="UpW-eC-kE0"/>
+                            <constraint firstItem="D0y-Wn-oEe" firstAttribute="top" secondItem="lAG-lR-ha8" secondAttribute="bottom" constant="1" id="W3a-1C-lcG"/>
+                            <constraint firstItem="VeI-6n-teb" firstAttribute="top" secondItem="D0y-Wn-oEe" secondAttribute="bottom" constant="30" id="Z4p-wi-mFV"/>
+                            <constraint firstItem="D0y-Wn-oEe" firstAttribute="leading" secondItem="lAG-lR-ha8" secondAttribute="leading" id="c8i-JT-hcf"/>
+                            <constraint firstItem="qra-fy-1an" firstAttribute="centerY" secondItem="8td-cN-rg4" secondAttribute="centerY" id="isp-OL-14c"/>
                             <constraint firstItem="98C-IW-nUr" firstAttribute="trailing" secondItem="lAG-lR-ha8" secondAttribute="trailing" constant="60" id="myZ-v6-qIS"/>
                             <constraint firstItem="YoZ-HQ-0Q5" firstAttribute="top" secondItem="98C-IW-nUr" secondAttribute="top" constant="123" id="tO3-yX-Fe8"/>
-                            <constraint firstItem="qra-fy-1an" firstAttribute="top" secondItem="VeI-6n-teb" secondAttribute="bottom" constant="50" id="urc-Tq-uql"/>
-                            <constraint firstItem="VeI-6n-teb" firstAttribute="top" secondItem="lAG-lR-ha8" secondAttribute="bottom" constant="30" id="vEj-jt-gt8"/>
                             <constraint firstItem="lAG-lR-ha8" firstAttribute="leading" secondItem="YoZ-HQ-0Q5" secondAttribute="leading" id="vmc-7s-UUC"/>
                             <constraint firstItem="YoZ-HQ-0Q5" firstAttribute="leading" secondItem="98C-IW-nUr" secondAttribute="leading" constant="60" id="xjn-rQ-BTh"/>
                         </constraints>
@@ -532,6 +546,7 @@
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="VeI-6n-teb" id="Csq-Ca-syd"/>
+                        <outlet property="interestAssistLabel" destination="D0y-Wn-oEe" id="n60-nf-0Hz"/>
                         <outlet property="interestTextField" destination="lAG-lR-ha8" id="wQe-6L-Urc"/>
                     </connections>
                 </viewController>
