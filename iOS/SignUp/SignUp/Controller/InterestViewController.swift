@@ -13,6 +13,7 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var interestTextField: UITextField!
     @IBOutlet var collectionView: InterestCollectionView!
     @IBOutlet var interestAssistLabel: UILabel!
+    @IBOutlet var joinButton: UIButton!
     
     var id: String?
     var password: String?
@@ -21,6 +22,8 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
     var gender: String?
     var phoneNumber: String?
     var email: String?
+    
+    let requestManager = RequestManager()
     
     private var interest: [String] = [] {
         didSet {
@@ -34,6 +37,8 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         interestTextField.delegate = self
         
         setUI()
+        joinButton.isEnabled = false
+        
     }
     
     func setUI() {
@@ -48,6 +53,7 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         
         if interest.count >= 3 {
             interestAssistLabel.text = ""
+            joinButton.isEnabled = true
         }
         
         return true
@@ -57,11 +63,27 @@ class InterestViewController: UIViewController, UITextFieldDelegate {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func moveNextScene(_ sender: Any) {
-        if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            
-            nextScene.modalPresentationStyle = .fullScreen
-            self.present(nextScene, animated: true)
-        }
+    @IBAction func moveNextScene(_ sender: UIButton) {
+        let url = "https://signup-5-test-deploy.herokuapp.com/join"
+        
+        let interestString = interest.reduce("") { "\($0)"+"\($1)" }
+        
+        guard let id = id, let password = password, let name = name, let birthday = birthDate, let sex = gender, let email = email, let phoneNumber = phoneNumber else { return }
+        
+        let userInfo = UserInfo(userId: id, password: password, name: name, birthday: birthday, sex: sex, email: email, phoneNumber: phoneNumber, interest: interestString)
+        let encoder = JSONEncoder()
+            let data = try? encoder.encode(userInfo)
+            requestManager.request(url: url, methodType: .post, body: data)
+            if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
+                
+                nextScene.modalPresentationStyle = .fullScreen
+                self.present(nextScene, animated: true)
+            }
+        
+        
+        
+        
     }
+    
+    
 }

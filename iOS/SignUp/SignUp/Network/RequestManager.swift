@@ -30,7 +30,8 @@ class RequestManager {
             
             do {
                 let anyData = try JSONSerialization.jsonObject(with: data!, options: [])
-                print(anyData)
+               guard let nsDictionary = anyData as? NSDictionary else { return }
+               
                 } catch {
                 
             }

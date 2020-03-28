@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGq-EB-mR9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -463,7 +463,7 @@
                                 </state>
                                 <connections>
                                     <action selector="moveNextScene:" destination="hj5-pv-AQb" eventType="touchUpInside" id="WgL-vv-NdL"/>
-                                    <action selector="moveNextScene:" destination="YGq-EB-mR9" eventType="touchUpInside" id="jUO-KI-hyQ"/>
+                                    <action selector="moveNextScene:" destination="YGq-EB-mR9" eventType="touchUpInside" id="mRb-Hx-J7x"/>
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VeI-6n-teb" customClass="InterestCollectionView" customModule="SignUp" customModuleProvider="target">
@@ -552,6 +552,7 @@
                         <outlet property="collectionView" destination="VeI-6n-teb" id="Csq-Ca-syd"/>
                         <outlet property="interestAssistLabel" destination="D0y-Wn-oEe" id="n60-nf-0Hz"/>
                         <outlet property="interestTextField" destination="lAG-lR-ha8" id="wQe-6L-Urc"/>
+                        <outlet property="joinButton" destination="8td-cN-rg4" id="Yol-0Z-4qx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0I8-A8-F6R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

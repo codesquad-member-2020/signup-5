@@ -44,6 +44,7 @@ class TermsViewController: UIViewController {
                 nextScene.password = self.password
                 nextScene.name = self.name
                 nextScene.birthDate = self.birthDate
+                nextScene.gender = self.gender
                 nextScene.phoneNumber = self.phoneNumber
                 nextScene.email = self.email
                 
@@ -60,7 +61,7 @@ class TermsViewController: UIViewController {
         
         present(actionSheet, animated: false)
     }
-
-
-  
+    
+    
+    
 }
