@@ -62,7 +62,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     @objc func selectDate(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일"
+        formatter.dateFormat = "yyyy-MM-dd"
         birthDateTextField.text = formatter.string(from: sender.date)
         isBirthDateInput = true
     }
@@ -124,7 +124,8 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
                 nextScene.id = id
                 nextScene.password = password
                 nextScene.name = name
-                nextScene.birthDate = selectedGender
+                nextScene.birthDate = birthDateTextField.text!
+                nextScene.gender = selectedGender
                 nextScene.phoneNumber = phoneNumberTextField.text!
                 nextScene.email = emailTextField.text!
                 
