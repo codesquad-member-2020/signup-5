@@ -15,5 +15,11 @@ class LoginViewController: UIViewController {
 
     }
     
-
+    @IBAction func moveJoinScene(_ sender: UIButton) {
+           if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "ViewController") as? ViewController {
+               
+               nextScene.modalPresentationStyle = .fullScreen
+               self.present(nextScene, animated: true)
+           }
+       }
 }

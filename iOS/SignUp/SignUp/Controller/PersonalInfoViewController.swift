@@ -24,6 +24,10 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     private var isValidEmail = false
     private var isValidPhoneNumber = false
     
+    var id: String?
+    var password: String?
+    var name: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         birthDateTextField.delegate = self
@@ -58,7 +62,7 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     @objc func selectDate(_ sender: UIDatePicker) {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일"
+        formatter.dateFormat = "yyyy-MM-dd"
         birthDateTextField.text = formatter.string(from: sender.date)
         isBirthDateInput = true
     }
@@ -115,10 +119,18 @@ class PersonalInfoViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func moveNextScene(_ sender: UIButton) {
         if isValidEmail, isBirthDateInput, isValidPhoneNumber {
-            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as? TermsViewController{
+            if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "TermsViewController") as? TermsViewController{
                 
-                vc.modalPresentationStyle = .automatic
-                self.present(vc, animated: true)
+                nextScene.id = id
+                nextScene.password = password
+                nextScene.name = name
+                nextScene.birthDate = birthDateTextField.text!
+                nextScene.gender = selectedGender
+                nextScene.phoneNumber = phoneNumberTextField.text!
+                nextScene.email = emailTextField.text!
+                
+                nextScene.modalPresentationStyle = .automatic
+                self.present(nextScene, animated: true)
             }
         }
     }

@@ -45,10 +45,18 @@ class ViewController: UIViewController, UITextFieldDelegate {
         if idTextField.judgeValidValue(), passwordTextField.judgeValidValue(), passwordConfirmTextField.judgeValidValue(), nameTextField.judgeValidValue() {
             if let nextScene = self.storyboard?.instantiateViewController(withIdentifier: "PersonalInfoView") as? PersonalInfoViewController{
                 
+                nextScene.id = idTextField.text!
+                nextScene.password = passwordTextField.text!
+                nextScene.name = nameTextField.text!
+                
                 nextScene.modalPresentationStyle = .fullScreen
                 self.present(nextScene, animated: true)
             }
         }
+    }
+    
+    @IBAction func moveBeforeScene(_ sender: Any) {
+        self.dismiss(animated: true)
     }
     
     @objc func inputIdAssistComment(_ notification: Notification) {
