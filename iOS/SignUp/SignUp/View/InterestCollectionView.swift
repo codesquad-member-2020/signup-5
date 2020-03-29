@@ -9,9 +9,8 @@
 import UIKit
 
 class InterestCollectionView: UICollectionView, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
-    
+      
     private var interest: [String] = []
-    private var collectionViewFlowLayout =  UICollectionViewFlowLayout()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
@@ -44,10 +43,22 @@ class InterestCollectionView: UICollectionView, UICollectionViewDelegateFlowLayo
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "InterestCollectionViewCell", for: indexPath) as! InterestCollectionViewCell
-        collectionViewFlowLayout.estimatedItemSize = CGSize(width: (cell.interestLabel.bounds.width) + 10.0, height: 50.0)
-
-        return collectionViewFlowLayout.estimatedItemSize
+        let cell = InterestCollectionViewCell()
+        
+        let interestLabel = UILabel()
+        interestLabel.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
+        interestLabel.text = interest[indexPath.row]
+        cell.addSubview(interestLabel)
+        interestLabel.translatesAutoresizingMaskIntoConstraints = false
+        interestLabel.topAnchor.constraint(equalTo: cell.topAnchor).isActive = true
+        interestLabel.bottomAnchor.constraint(equalTo: cell.bottomAnchor).isActive = true
+        interestLabel.leadingAnchor.constraint(equalTo: cell.leadingAnchor).isActive = true
+        interestLabel.trailingAnchor.constraint(equalTo: cell.trailingAnchor).isActive = true
+        cell.interestLabel = interestLabel
+        cell.setNeedsLayout()
+        let estimatedSize = cell.systemLayoutSizeFitting(CGSize(width: cell.interestLabel.bounds.width, height: 40))
+ 
+        return .init(width: estimatedSize.width + 44, height: 40)
     }
     
     func setNotification() {

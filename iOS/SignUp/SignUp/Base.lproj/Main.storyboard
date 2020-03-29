@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8FF-6h-p2J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YGq-EB-mR9">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -503,7 +503,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="83" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-9P-HAu">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yuc-9P-HAu">
                                                     <rect key="frame" x="8" y="9.5" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -519,16 +519,16 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="OkQ-5H-t7T" secondAttribute="trailing" constant="5" id="H2J-bu-JQo"/>
-                                                <constraint firstItem="OkQ-5H-t7T" firstAttribute="leading" secondItem="yuc-9P-HAu" secondAttribute="trailing" priority="250" constant="8" id="HUD-7K-1ym"/>
                                                 <constraint firstItem="yuc-9P-HAu" firstAttribute="leading" secondItem="Sa0-8j-XFb" secondAttribute="leading" constant="8" id="KB1-ut-UkP"/>
                                                 <constraint firstItem="OkQ-5H-t7T" firstAttribute="centerY" secondItem="Sa0-8j-XFb" secondAttribute="centerY" id="PKK-Y2-ii4"/>
+                                                <constraint firstItem="OkQ-5H-t7T" firstAttribute="leading" secondItem="yuc-9P-HAu" secondAttribute="trailing" constant="8" id="djR-Ux-ORS"/>
                                                 <constraint firstItem="yuc-9P-HAu" firstAttribute="centerY" secondItem="Sa0-8j-XFb" secondAttribute="centerY" id="kYk-lT-Fqd"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" red="0.81015455722808838" green="0.9080960750579834" blue="0.43370181322097778" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="cancelButton" destination="OkQ-5H-t7T" id="Tbc-y4-Zze"/>
-                                            <outlet property="interestLabel" destination="yuc-9P-HAu" id="cpg-sy-iwR"/>
+                                            <outlet property="interestLabel" destination="yuc-9P-HAu" id="a2n-Vz-JR9"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
