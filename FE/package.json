@@ -1,0 +1,23 @@
+{
+  "name": "FE",
+  "version": "1.0.0",
+  "description": "- Frontend : [Taek](https://github.com/seungdeng17)\r - Backend : [Diane](https://github.com/moonelysian), [Dan](https://github.com/Hyune-c)\r - iOS : [Delma](https://github.com/delmaSong?tab=repositories)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0"
+  },
+  "dependencies": {
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  }
+}
